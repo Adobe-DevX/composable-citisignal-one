@@ -90,7 +90,7 @@ export function renderAuthDropdown() {
   logoutButtonElement.addEventListener('click', async () => {
     await authApi.revokeCustomerToken();
     checkAndRedirect({
-      '/customer': '/customer/login',
+      '/customer': '/us/en/customer/login',
       '/order-details': '/',
     });
   });
