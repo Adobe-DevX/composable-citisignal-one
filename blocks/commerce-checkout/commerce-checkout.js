@@ -734,7 +734,7 @@ export default async function decorate(block) {
     const handleSignUpClick = async ({ inputsDefaultValueSet, addressesData }) => {
       const signUpForm = document.createElement('div');
       AuthProvider.render(SignUp, {
-        routeSignIn: () => '/customer/login',
+        routeSignIn: () => '/us/en/customer/login',
         routeRedirectOnEmailConfirmationClose: () => '/customer/account',
         inputsDefaultValueSet,
         addressesData,
