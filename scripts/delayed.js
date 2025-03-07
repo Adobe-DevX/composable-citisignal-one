@@ -26,7 +26,7 @@ if (getConsent('commerce-collection')) {
     baseCurrencyCode: await getConfigValue('commerce-base-currency-code'),
     storeViewCurrencyCode: await getConfigValue('commerce-base-currency-code'),
     storefrontTemplate: 'Franklin',
-    datastreamId: '9e468870-d200-4018-923d-9e64dc01e0d5',
+    datastreamId: '7f79ee17-c891-48de-97cc-6c089af8b112',
     imsOrgId: 'F5D946765D932A520A495C18@AdobeOrg',
   };
 
