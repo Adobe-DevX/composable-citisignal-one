@@ -241,6 +241,8 @@ export default async function decorate(block) {
               desktop: false,
             },
             gap: 'small',
+            imageParams: {
+            },
           },
           slots: {
             Quantity: (ctx) => {
