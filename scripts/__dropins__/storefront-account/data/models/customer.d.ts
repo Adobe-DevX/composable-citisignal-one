@@ -26,4 +26,15 @@ export interface CustomerDataModelShort {
     createdAt: string;
     [key: string]: string | boolean | number;
 }
+export interface AccountModel {
+    firstName?: string;
+    lastName?: string;
+    emailAddress?: string;
+    phoneNumber?: string;
+    countryCode?: string;
+    accountId?: string;
+    accountType?: string;
+    company?: string;
+    customerGroup?: string;
+}
 //# sourceMappingURL=customer.d.ts.map
