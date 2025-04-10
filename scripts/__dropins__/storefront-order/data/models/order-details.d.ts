@@ -221,7 +221,7 @@ export type OrderDataModel = {
     subtotalInclTax: MoneyProps;
     totalTax: MoneyProps;
     shippingAddress: OrderAddressModel;
-    totalGiftOptions: {
+    totalGiftOptions?: {
         giftWrappingForItems: MoneyProps;
         giftWrappingForItemsInclTax: MoneyProps;
         giftWrappingForOrder: MoneyProps;

@@ -1,35 +1,29 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 import { SignUp } from '@dropins/storefront-auth/containers/SignUp.js';
-import { SuccessNotification } from '@dropins/storefront-auth/containers/SuccessNotification.js';
-import * as authApi from '@dropins/storefront-auth/api.js';
 import { render as authRenderer } from '@dropins/storefront-auth/render.js';
-import { getCookie } from '../../scripts/configs.js';
-import { h } from '../../scripts/preact.js';
+import { checkIsAuthenticated } from '../../scripts/configs.js';
+import {
+  authPrivacyPolicyConsentSlot,
+  CUSTOMER_ACCOUNT_PATH,
+  CUSTOMER_LOGIN_PATH,
+} from '../../scripts/constants.js';
+import { rootLink } from '../../scripts/scripts.js';
 
-export default function decorate(block) {
-  const isAuthenticated = !!getCookie('auth_dropin_user_token');
+// Initialize
+import '../../scripts/initializers/auth.js';
 
-  if (isAuthenticated) {
-    window.location.href = '/us/en/customer/account';
+export default async function decorate(block) {
+  if (checkIsAuthenticated()) {
+    window.location.href = rootLink(CUSTOMER_ACCOUNT_PATH);
   } else {
-    authRenderer.render(SignUp, {
+    await authRenderer.render(SignUp, {
       hideCloseBtnOnEmailConfirmation: true,
-      routeSignIn: () => '/us/en/customer/login',
-      routeRedirectOnSignIn: () => '/us/en/customer/account',
-      successNotificationForm: (userName) => h(SuccessNotification, {
-        headingText: `Welcome ${userName}!`,
-        messageText: 'Your account has been successfully created.',
-        primaryButtonText: 'My Account',
-        secondaryButtonText: 'Logout',
-        onPrimaryButtonClick: () => {
-          window.location.href = '/us/en/customer/account';
-        },
-        onSecondaryButtonClick: async () => {
-          await authApi.revokeCustomerToken();
-          window.location.href = '/';
-        },
-      }),
+      routeSignIn: () => rootLink(CUSTOMER_LOGIN_PATH),
+      routeRedirectOnSignIn: () => rootLink(CUSTOMER_ACCOUNT_PATH),
+      slots: {
+        ...authPrivacyPolicyConsentSlot,
+      },
     })(block);
   }
 }

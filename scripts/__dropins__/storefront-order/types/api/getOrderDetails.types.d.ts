@@ -92,7 +92,7 @@ export interface TotalProps {
     total_tax?: TotalTaxProps;
     total_shipping?: TotalShippingProps;
     discounts?: DiscountProps[];
-    gift_options: TotalGiftOptionsProps;
+    gift_options?: TotalGiftOptionsProps;
 }
 interface InvoiceItemInterface {
 }
