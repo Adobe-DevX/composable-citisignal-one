@@ -543,6 +543,10 @@
           {
             "name": "Streaming",
             "value": "streaming"
+          },
+          {
+            "name": "Home Internet",
+            "value": "home-internet"
           }
         ]
       }
