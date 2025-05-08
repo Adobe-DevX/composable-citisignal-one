@@ -801,3 +801,5 @@ main .section.author .content-wrapper p:nth-child(2) {
 .dropin-design .dropin-cart-item__sku {
   display: none;
 }
+
+@import '../blocks/home-internet-offer/home-internet-offer.css';

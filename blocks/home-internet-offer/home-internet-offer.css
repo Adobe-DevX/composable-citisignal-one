@@ -1,0 +1,126 @@
+/* Container and Layout */
+.home-internet-offer-container {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 2rem auto;
+  min-height: 600px;
+}
+
+.home-internet-offer-left {
+  flex: 1 1 55%;
+  padding: 3rem 2.5rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-internet-offer-right {
+  flex: 1 1 45%;
+  background: #f7f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-internet-offer-right img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Headings and Text */
+.home-internet-offer-left h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  color: #231f20;
+}
+
+.home-internet-offer-left .offer-details {
+  font-size: 1rem;
+  color: #231f20;
+  margin-bottom: 0.7rem;
+}
+
+.home-internet-offer-left .not-available {
+  color: #231f20;
+  font-size: 1.05rem;
+  margin: 1.2rem 0 0.5rem 0;
+}
+
+.home-internet-offer-left .full-terms {
+  color: #7c2bc0;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  text-decoration: underline;
+}
+
+/* Form Styles */
+.availability-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin: 1.2rem 0 1.5rem 0;
+}
+
+.availability-form label {
+  font-size: 0.98rem;
+  color: #231f20;
+  margin-bottom: 0.2rem;
+}
+
+.availability-form input[type="text"] {
+  padding: 0.7rem 1rem;
+  border: 1px solid #cfcfd1;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.availability-form .check-availability {
+  background: #7c2bc0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.9rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.availability-form .check-availability:hover {
+  background: #5a1e8a;
+}
+
+.business-link, .puerto-rico-link {
+  font-size: 0.98rem;
+  margin-top: 0.7rem;
+  color: #231f20;
+}
+
+.business-link a, .puerto-rico-link a {
+  color: #7c2bc0;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .home-internet-offer-container {
+    flex-direction: column;
+    min-height: unset;
+  }
+  .home-internet-offer-right {
+    min-height: 250px;
+    padding: 1.5rem 0;
+  }
+  .home-internet-offer-left {
+    padding: 2rem 1.2rem;
+  }
+} 

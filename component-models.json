@@ -1412,5 +1412,17 @@
         "label": "Rows"
       }
     ]
+  },
+  {
+    "id": "home-internet-offer",
+    "fields": [
+      {
+        "component": "text",
+        "name": "note",
+        "label": "Note",
+        "valueType": "string",
+        "value": "This block displays the Home Internet Offer UI."
+      }
+    ]
   }
 ]
