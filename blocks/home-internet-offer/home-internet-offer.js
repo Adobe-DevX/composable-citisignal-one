@@ -10,10 +10,8 @@ export default function decorate(block) {
         <p class="not-available"><strong>Not available in all areas.</strong></p>
         <a class="full-terms" href="#">Get full terms</a>
         <form class="availability-form">
-          <label for="address">Address</label>
-          <input type="text" id="address" name="address" placeholder="Enter your address" />
-          <label for="unit">Unit or Apartment #</label>
-          <input type="text" id="unit" name="unit" placeholder="Unit #" />
+          <label for="pincode">Zip Code</label>
+          <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" required>
           <button type="submit" class="check-availability">Check availability</button>
         </form>
         <div class="business-link">
