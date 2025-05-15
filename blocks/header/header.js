@@ -155,10 +155,14 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
+  navBrand.addEventListener('click', (e) => {
+    window.location.href = "/us/en/";
+  })
   const brandLink = navBrand.querySelector('.button');
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+    brandLink.href = '/us/en';
   }
 
   const navSections = nav.querySelector('.nav-sections');

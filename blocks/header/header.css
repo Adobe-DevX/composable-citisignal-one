@@ -212,7 +212,7 @@ header nav .nav-sections ul {
   padding-left: 0;
   font: var(--type-body-1-default-font);
   letter-spacing: var(--type-body-1-default-letter-spacing);
-  gap: 1em;
+  /*gap: 1em;*/
 }
 
 header nav .nav-sections ul > li {
@@ -268,6 +268,8 @@ header nav .nav-sections ul > li > a:hover {
     position: relative;
     padding-right: 16px;
     cursor: pointer;
+    font-size: 14px;
+    padding: 2px 20px;
   }
 
   header nav .nav-sections .nav-drop::after {

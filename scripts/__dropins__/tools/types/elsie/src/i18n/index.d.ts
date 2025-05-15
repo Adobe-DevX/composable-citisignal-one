@@ -7,10 +7,21 @@ export declare const definition: {
                     label: string;
                 };
             };
+            Pagination: {
+                backwardButton: {
+                    ariaLabel: string;
+                };
+                forwardButton: {
+                    ariaLabel: string;
+                };
+            };
             Incrementer: {
                 decreaseLabel: string;
                 increaseLabel: string;
                 label: string;
+                errorMessage: string;
+                minQuantityMessage: string;
+                maxQuantityMessage: string;
             };
             Modal: {
                 Close: {
@@ -18,9 +29,10 @@ export declare const definition: {
                 };
             };
             InputPassword: {
-                requiredFieldError: string;
                 placeholder: string;
-                buttonTitle: string;
+                floatingLabel: string;
+                buttonShowTitle: string;
+                buttonHideTitle: string;
             };
             PasswordStatusIndicator: {
                 chartTwoSymbols: string;
@@ -105,6 +117,9 @@ export declare const definition: {
             };
             CartItem: {
                 each: {
+                    label: string;
+                };
+                pricePerItem: {
                     label: string;
                 };
                 quantity: {
@@ -138,10 +153,21 @@ export declare const definition: {
                     label: string;
                 };
             };
+            Pagination: {
+                backwardButton: {
+                    ariaLabel: string;
+                };
+                forwardButton: {
+                    ariaLabel: string;
+                };
+            };
             Incrementer: {
                 decreaseLabel: string;
                 increaseLabel: string;
                 label: string;
+                errorMessage: string;
+                minQuantityMessage: string;
+                maxQuantityMessage: string;
             };
             Modal: {
                 Close: {
@@ -149,9 +175,10 @@ export declare const definition: {
                 };
             };
             InputPassword: {
-                requiredFieldError: string;
                 placeholder: string;
-                buttonTitle: string;
+                floatingLabel: string;
+                buttonShowTitle: string;
+                buttonHideTitle: string;
             };
             PasswordStatusIndicator: {
                 chartTwoSymbols: string;
@@ -236,6 +263,9 @@ export declare const definition: {
             };
             CartItem: {
                 each: {
+                    label: string;
+                };
+                pricePerItem: {
                     label: string;
                 };
                 quantity: {
@@ -271,10 +301,21 @@ export declare const getDefinitionByLanguage: (lang: Lang) => {
                 label: string;
             };
         };
+        Pagination: {
+            backwardButton: {
+                ariaLabel: string;
+            };
+            forwardButton: {
+                ariaLabel: string;
+            };
+        };
         Incrementer: {
             decreaseLabel: string;
             increaseLabel: string;
             label: string;
+            errorMessage: string;
+            minQuantityMessage: string;
+            maxQuantityMessage: string;
         };
         Modal: {
             Close: {
@@ -282,9 +323,10 @@ export declare const getDefinitionByLanguage: (lang: Lang) => {
             };
         };
         InputPassword: {
-            requiredFieldError: string;
             placeholder: string;
-            buttonTitle: string;
+            floatingLabel: string;
+            buttonShowTitle: string;
+            buttonHideTitle: string;
         };
         PasswordStatusIndicator: {
             chartTwoSymbols: string;
@@ -369,6 +411,9 @@ export declare const getDefinitionByLanguage: (lang: Lang) => {
         };
         CartItem: {
             each: {
+                label: string;
+            };
+            pricePerItem: {
                 label: string;
             };
             quantity: {

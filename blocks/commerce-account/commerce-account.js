@@ -28,7 +28,7 @@ export default async function decorate(block) {
   const token = getCookie('auth_dropin_user_token');
 
   if (!token) {
-    window.location.href = '/customer/login';
+    window.location.href = '/us/en/customer/login';
   }
 
   document.body.classList.add('my-account-element');
@@ -152,7 +152,7 @@ export default async function decorate(block) {
 
     logoutDashboard.addEventListener('click', async () => {
       await authApi.revokeCustomerToken();
-      window.location.href = '/customer/login';
+      window.location.href = '/us/en/customer/login';
     });
   });
 }

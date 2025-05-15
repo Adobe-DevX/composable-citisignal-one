@@ -1,10 +1,5 @@
 const ALLOWED_CONFIGS = ['prod', 'stage', 'dev'];
 
-// Added to check if doc or xwalk.
-import { getMetadata } from './aem.js';
-const aemxwalk = getMetadata('aemxwalk');
-console.log(`Are we delivering from crosswalk? ${aemxwalk}`);
-
 /**
  * This function calculates the environment in which the site is running based on the URL.
  * It defaults to 'prod'. In non 'prod' environments, the value can be overwritten using
@@ -13,9 +8,9 @@ console.log(`Are we delivering from crosswalk? ${aemxwalk}`);
  * @returns {string} - environment identifier (dev, stage or prod'.
  */
 export const calcEnvironment = () => {
-  const { href } = window.location;
+  const { host, href } = window.location;
   let environment = 'prod';
-  if (href.includes('.hlx.page')) {
+  if (href.includes('.aem.page') || host.includes('staging')) {
     environment = 'stage';
   }
   if (href.includes('localhost')) {
@@ -23,7 +18,11 @@ export const calcEnvironment = () => {
   }
 
   const environmentFromConfig = window.sessionStorage.getItem('environment');
-  if (environmentFromConfig && ALLOWED_CONFIGS.includes(environmentFromConfig) && environment !== 'prod') {
+  if (
+      environmentFromConfig
+      && ALLOWED_CONFIGS.includes(environmentFromConfig)
+      && environment !== 'prod'
+  ) {
     return environmentFromConfig;
   }
 
@@ -33,36 +32,38 @@ export const calcEnvironment = () => {
 function buildConfigURL(environment) {
   const env = environment || calcEnvironment();
   let fileName = 'configs.json';
-  if (aemxwalk === 'false'){
-    fileName = 'configs.json?sheet=prod';
-  }
   if (env !== 'prod') {
     fileName = `configs-${env}.json`;
   }
- 
-      
-      /* eslint-disable-next-line no-use-before-define */
-      if (getAemAuthorEnv()) {
-        // eslint-disable-next-line no-use-before-define
-        const aemContentPath = getAemContentPath();
-        return new URL(`${window.location.origin}${aemContentPath}/${fileName}`);
-      }
-      const configURL = new URL(`${window.location.origin}/${fileName}`);
-      return configURL;  
-  } 
+  const configURL = new URL(`${window.location.origin}/${fileName}`);
+  return configURL;
+}
 
 const getConfigForEnvironment = async (environment) => {
   const env = environment || calcEnvironment();
-  let configJSON = window.sessionStorage.getItem(`config:${env}`);
-  if (!configJSON) {
-    configJSON = await fetch(buildConfigURL(env));
+
+  try {
+    const configJSON = window.sessionStorage.getItem(`config:${env}`);
+    if (!configJSON) {
+      throw new Error('No config in session storage');
+    }
+
+    const parsedConfig = JSON.parse(configJSON);
+    if (!parsedConfig[':expiry'] || parsedConfig[':expiry'] < Math.round(Date.now() / 1000)) {
+      throw new Error('Config expired');
+    }
+
+    return parsedConfig;
+  } catch (e) {
+    let configJSON = await fetch(buildConfigURL(env));
     if (!configJSON.ok) {
       throw new Error(`Failed to fetch config for ${env}`);
     }
-    configJSON = await configJSON.text();
-    window.sessionStorage.setItem(`config:${env}`, configJSON);
+    configJSON = await configJSON.json();
+    configJSON[':expiry'] = Math.round(Date.now() / 1000) + 7200;
+    window.sessionStorage.setItem(`config:${env}`, JSON.stringify(configJSON));
+    return configJSON;
   }
-  return configJSON;
 };
 
 /**
@@ -74,9 +75,27 @@ const getConfigForEnvironment = async (environment) => {
  */
 export const getConfigValue = async (configParam, environment) => {
   const env = environment || calcEnvironment();
-  const configJSON = await getConfigForEnvironment(env);
-  const configElements = JSON.parse(configJSON).data;
+  const config = await getConfigForEnvironment(env);
+  const configElements = config.data;
   return configElements.find((c) => c.key === configParam)?.value;
+};
+
+/**
+ * Retrieves headers from config entries like commerce.headers.pdp.my-header, etc and
+ * returns as object of all headers like { my-header: value, ... }
+ */
+export const getHeaders = async (scope, environment) => {
+  const env = environment || calcEnvironment();
+  const config = await getConfigForEnvironment(env);
+  const configElements = config.data.filter((el) => el?.key.includes(`headers.${scope}`));
+
+  return configElements.reduce((obj, item) => {
+    let { key } = item;
+    if (key.includes(`commerce.headers.${scope}.`)) {
+      key = key.replace(`commerce.headers.${scope}.`, '');
+    }
+    return { ...obj, [key]: item.value };
+  }, {});
 };
 
 export const getCookie = (cookieName) => {
@@ -93,6 +112,7 @@ export const getCookie = (cookieName) => {
   return foundValue;
 };
 
+export const checkIsAuthenticated = () => !!getCookie('auth_dropin_user_token') ?? false;
 
 export const getAemContentPath = () => {
   let authorContentPath = '/content';

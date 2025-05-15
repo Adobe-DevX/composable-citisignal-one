@@ -1,4 +1,6 @@
-import{M as s,e as a}from"./transform-shipping-methods.js";import{C as p,a as r,t as n}from"./getCart.graphql.js";import"./getStoreConfig.js";import"@dropins/tools/event-bus.js";const o=`
+/*! Copyright 2024 Adobe
+All Rights Reserved. */
+import{s as i}from"./store-config.js";import"./transform-store-config.js";import"./ServerErrorSignal.js";import{M as p}from"./errors.js";import{d as r,b as s}from"./synchronizeCheckout.js";import"@dropins/tools/lib.js";import"@dropins/tools/event-bus.js";import{CHECKOUT_DATA_FRAGMENT as o}from"../fragments.js";const e=`
   mutation setShippingMethods(
     $cartId: String!
     $shippingMethods: [ShippingMethodInput]!
@@ -7,13 +9,10 @@ import{M as s,e as a}from"./transform-shipping-methods.js";import{C as p,a as r,
       input: { cart_id: $cartId, shipping_methods: $shippingMethods }
     ) {
       cart {
-        id
-        ...CartData
-        ...CartSummaryItems
+        ...CHECKOUT_DATA_FRAGMENT
       }
     }
   }
-  ${p}
-  ${r}
-`,d=async({cartId:t,shippingMethods:i})=>{if(!t)throw new s;return a({type:"mutation",query:o,options:{variables:{cartId:t,shippingMethods:i}},path:"setShippingMethodsOnCart.cart",signalType:"cart",transformer:n})};export{d as s};
-//# sourceMappingURL=setShippingMethods.js.map
+
+  ${o}
+`,f=async a=>{const t=i.cartId;if(!t)throw new p;return await r({type:"mutation",query:e,queueName:"cartUpdate",options:{variables:{cartId:t,shippingMethods:a}},path:"setShippingMethodsOnCart.cart",signalType:"cart",transformer:s})};export{f as s};

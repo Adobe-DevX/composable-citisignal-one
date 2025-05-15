@@ -5,10 +5,21 @@ declare const _default: {
         "label": "string"
       }
     },
+    "Pagination": {
+      "backwardButton": {
+        "ariaLabel": "Go to previous page"
+      },
+      "forwardButton": {
+        "ariaLabel": "Go to next page"
+      }
+    },
     "Incrementer": {
       "decreaseLabel": "Decrease Quantity",
       "increaseLabel": "Increase Quantity",
-      "label": "Quantity"
+      "label": "Quantity",
+      "errorMessage": "Enter a valid quantity",
+      "minQuantityMessage": "Enter at least {{minQuantity}}",
+      "maxQuantityMessage": "Maximum quantity is {{maxQuantity}}"
     },
     "Modal": {
       "Close": {
@@ -16,9 +27,10 @@ declare const _default: {
       }
     },
     "InputPassword": {
-      "requiredFieldError": "This is a required field.",
       "placeholder": "Password",
-      "buttonTitle": "Click to show or hide password"
+      "floatingLabel": "Password",
+      "buttonShowTitle": "Click to show password",
+      "buttonHideTitle": "Click to hide password"
     },
     "PasswordStatusIndicator": {
       "chartTwoSymbols": "Use characters and numbers or symbols",
@@ -104,6 +116,9 @@ declare const _default: {
     "CartItem": {
       "each": {
         "label": "each"
+      },
+      "pricePerItem": {
+        "label": "price per item"
       },
       "quantity": {
         "label": "Quantity"

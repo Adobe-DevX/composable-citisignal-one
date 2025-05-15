@@ -87,6 +87,7 @@
 
 .product-list-page .ds-widgets_results > div {
   max-width: 100%;
+  height: unset !important;
 }
 
 .product-list-page .ds-widgets_results > div:nth-child(2) > div > div {

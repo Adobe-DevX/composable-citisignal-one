@@ -1,9 +1,16 @@
 import { HTMLAttributes } from 'preact/compat';
-import { Container } from '@dropins/tools/types/elsie/src/lib';
 
 export interface PlaceOrderProps extends HTMLAttributes<HTMLDivElement> {
-    onClick: () => void;
-    handleServerError: (error: any) => void;
+    disabled?: boolean;
+    handleValidation?: () => boolean;
+    handlePlaceOrder: (ctx: PlaceOrderContext) => Promise<void>;
 }
-export declare const PlaceOrder: Container<PlaceOrderProps>;
+export interface PlaceOrderContext {
+    code: string;
+    cartId: string;
+}
+export declare const PlaceOrder: {
+    ({ hideOnEmptyCart, hideOnVirtualCart, ...props }: import('../../hocs/withConditionalRendering').ConditionalProps & PlaceOrderProps): import("preact/compat").JSX.Element;
+    displayName: string;
+};
 //# sourceMappingURL=PlaceOrder.d.ts.map

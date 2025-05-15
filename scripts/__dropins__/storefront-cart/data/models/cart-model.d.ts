@@ -1,6 +1,23 @@
+/********************************************************************
+ * ADOBE CONFIDENTIAL
+ * __________________
+ *
+ *  Copyright 2024 Adobe
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe and its suppliers, if any. The intellectual
+ * and technical concepts contained herein are proprietary to Adobe
+ * and its suppliers and are protected by all applicable intellectual
+ * property laws, including trade secret and copyright laws.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe.
+ *******************************************************************/
 export interface CartModel {
     id: string;
     totalQuantity: number;
+    totalUniqueItems: number;
     errors?: ItemError[];
     items: Item[];
     miniCartMaxItems: Item[];
@@ -27,8 +44,16 @@ export interface CartModel {
         }[];
     };
     isGuestCart?: boolean;
+    hasOutOfStockItems?: boolean;
+    hasFullyOutOfStockItems?: boolean;
+    appliedCoupons?: Coupon[];
 }
 interface TotalPriceModifier {
+    amount: Price;
+    label: string;
+    coupon?: Coupon;
+}
+interface FixedProductTax {
     amount: Price;
     label: string;
 }
@@ -39,8 +64,11 @@ export interface Item {
     itemType: string;
     uid: string;
     url: ItemURL;
+    canonicalUrl: string;
+    categories: string[];
     quantity: number;
     sku: string;
+    topLevelSku: string;
     name: string;
     image: ItemImage;
     links?: ItemLinks;
@@ -64,6 +92,16 @@ export interface Item {
     recipientEmail?: string;
     sender?: string;
     senderEmail?: string;
+    lowInventory?: boolean;
+    insufficientQuantity?: boolean;
+    onlyXLeftInStock?: number | null;
+    outOfStock?: boolean;
+    notAvailableMessage?: string;
+    stockLevel?: String;
+    discountPercentage?: number;
+    savingsAmount?: Price;
+    productAttributes?: Attribute[];
+    fixedProductTaxes?: FixedProductTax[];
 }
 interface ItemError {
     id: string;
@@ -73,7 +111,7 @@ interface ItemImage {
     src: string;
     alt: string;
 }
-interface Price {
+export interface Price {
     value: number;
     currency: string;
 }
@@ -84,6 +122,18 @@ interface ItemURL {
 interface ItemLinks {
     count: number;
     result: string;
+}
+interface AttributeOption {
+    value: string;
+    label: string;
+}
+interface Attribute {
+    code: string;
+    value?: string;
+    selected_options?: AttributeOption[];
+}
+interface Coupon {
+    code: string;
 }
 export {};
 //# sourceMappingURL=cart-model.d.ts.map

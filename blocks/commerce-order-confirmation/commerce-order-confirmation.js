@@ -33,7 +33,7 @@ export default async function decorate(block) {
     const signUpForm = document.createElement('div');
 
     authProvider.render(SignUp, {
-      routeSignIn: () => '/customer/login',
+      routeSignIn: () => '/us/en/customer/login',
       routeRedirectOnEmailConfirmationClose: () => '/customer/account',
       inputsDefaultValueSet,
       addressesData,

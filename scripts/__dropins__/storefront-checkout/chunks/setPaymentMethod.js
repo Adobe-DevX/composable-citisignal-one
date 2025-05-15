@@ -1,16 +1,18 @@
-import{M as e,b as r,e as n}from"./transform-shipping-methods.js";import{C as s,a as o,t as i}from"./getCart.graphql.js";import"./getStoreConfig.js";const m=`
-  mutation setPaymentMethod($cartId: String!, $paymentMethod: String!) {
+/*! Copyright 2024 Adobe
+All Rights Reserved. */
+import{M as e,d as r}from"./errors.js";import{CHECKOUT_DATA_FRAGMENT as o}from"../fragments.js";import{d as n,b as s}from"./synchronizeCheckout.js";import{s as m}from"./store-config.js";import"./transform-store-config.js";import"./ServerErrorSignal.js";import"@dropins/tools/event-bus.js";import"@dropins/tools/lib.js";const i=`
+  mutation setPaymentMethod(
+    $cartId: String!
+    $paymentMethod: PaymentMethodInput!
+  ) {
     setPaymentMethodOnCart(
-      input: { cart_id: $cartId, payment_method: { code: $paymentMethod } }
+      input: { cart_id: $cartId, payment_method: $paymentMethod }
     ) {
       cart {
-        id
-        ...CartData
-        ...CartSummaryItems
+        ...CHECKOUT_DATA_FRAGMENT
       }
     }
   }
-  ${s}
+
   ${o}
-`,y=async({cartId:t,paymentMethod:a})=>{if(!t)throw new e;if(!a)throw new r;return await n({type:"mutation",query:m,options:{variables:{cartId:t,paymentMethod:a}},path:"setPaymentMethodOnCart.cart",signalType:"cart",transformer:i})};export{y as s};
-//# sourceMappingURL=setPaymentMethod.js.map
+`,A=async t=>{const a=m.cartId;if(!a)throw new e;if(!t)throw new r;return await n({options:{variables:{cartId:a,paymentMethod:t}},path:"setPaymentMethodOnCart.cart",query:i,queueName:"cartUpdate",signalType:"cart",transformer:s,type:"mutation"})};export{A as s};

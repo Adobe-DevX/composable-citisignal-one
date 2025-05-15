@@ -11,19 +11,19 @@ export default function decorate(block) {
   const isAuthenticated = !!getCookie('auth_dropin_user_token');
 
   if (isAuthenticated) {
-    window.location.href = '/customer/account';
+    window.location.href = '/us/en/customer/account';
   } else {
     authRenderer.render(SignUp, {
       hideCloseBtnOnEmailConfirmation: true,
-      routeSignIn: () => '/customer/login',
-      routeRedirectOnSignIn: () => '/customer/account',
+      routeSignIn: () => '/us/en/customer/login',
+      routeRedirectOnSignIn: () => '/us/en/customer/account',
       successNotificationForm: (userName) => h(SuccessNotification, {
         headingText: `Welcome ${userName}!`,
         messageText: 'Your account has been successfully created.',
         primaryButtonText: 'My Account',
         secondaryButtonText: 'Logout',
         onPrimaryButtonClick: () => {
-          window.location.href = '/customer/account';
+          window.location.href = '/us/en/customer/account';
         },
         onSecondaryButtonClick: async () => {
           await authApi.revokeCustomerToken();

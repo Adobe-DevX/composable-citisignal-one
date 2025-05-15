@@ -1,1 +1,1763 @@
-import{jsx as e}from"./preact-jsx-runtime.js";import{d as J,c as r,b as ne,V as N,e as ge,g as ve}from"./chunks/vcomponent.js";import{G as fe,q as M,b as v,L as we,p as V,a as z,x as R,S as K,F as G,_ as ke,N as ae,E as xe,k as A,P as De}from"./chunks/icons/Add.js";import{IntlProvider as Se,Localizer as Y,Text as I,useText as S}from"./i18n.js";import U from"./chunks/icons/Minus.js";import Ee from"./chunks/icons/CheckWithCircle.js";import Pe from"./chunks/icons/WarningWithCircle.js";import Te from"./chunks/icons/Date.js";import Ie from"./chunks/icons/Locker.js";import $e from"./chunks/icons/Eye.js";import Ce from"./chunks/icons/EyeClose.js";import oe from"./chunks/icons/Check.js";import Z from"./chunks/icons/Close.js";import se from"./chunks/icons/ChevronDown.js";import Le from"./chunks/icons/Trash.js";import Ae from"./chunks/icons/ChevronUp.js";import"./chunks/image-params-keymap.js";const Oe={ExampleComponentName:{item:{label:"string"}},Incrementer:{decreaseLabel:"Decrease Quantity",increaseLabel:"Increase Quantity",label:"Quantity"},Modal:{Close:{label:"Close"}},InputPassword:{requiredFieldError:"This is a required field.",placeholder:"Password",buttonTitle:"Click to show or hide password"},PasswordStatusIndicator:{chartTwoSymbols:"Use characters and numbers or symbols",chartThreeSymbols:"Use characters, numbers and symbols",chartFourSymbols:"Use uppercase characters, lowercase characters, numbers and symbols",messageLengthPassword:"At least {minLength} characters long"},InlineAlert:{dismissLabel:"Dismiss Alert"},PriceSummary:{subTotal:{label:"Subtotal",withTaxes:"Including taxes",withoutTaxes:"excluding taxes"},shipping:{label:"Shipping",editZipAction:"Apply",estimated:"Estimated Shipping",estimatedDestination:"Estimated Shipping to ",destinationLinkAriaLabel:"Change destination",zipPlaceholder:"Zip Code",withTaxes:"Including taxes",withoutTaxes:"excluding taxes",alternateField:{zip:"Estimate using country/zip",state:"Estimate using country/state"}},taxes:{total:"Tax Total",totalOnly:"Tax",breakdown:"Taxes",showBreakdown:"Show Tax Breakdown",hideBreakdown:"Hide Tax Breakdown",estimated:"Estimated Tax"},total:{estimated:"Estimated Total",label:"Total",withoutTax:"Total excluding taxes"}},ProgressSpinner:{updating:{label:"Item is updating"},updatingChildren:{label:"Items are updating"}},PriceRange:{from:{label:"From"},to:{label:"to"},asLowAs:{label:"As low as"}},Swatches:{outOfStock:{label:"out of stock swatch"},selected:{label:"swatch selected"},swatch:{label:"swatch"}},Accordion:{open:{label:"Open"},close:{label:"Close"}},CartItem:{each:{label:"each"},quantity:{label:"Quantity"},remove:{label:"Remove {product} from the cart"},removeDefault:{label:"Remove item from the cart"},taxIncluded:{label:"incl. VAT"},taxExcluded:{label:"excl. tax"},updating:{label:"{product} is updating"}},InputDate:{picker:"Select a date"}},Q={Dropin:Oe},ee={default:Q,en_US:Q},Ve=l=>J(ee.default,ee[l]||{}),re=1,W=({className:l,fullWidth:s=!1,lines:a=re,size:t="small",variant:o="row",children:n=null,multilineGap:c="medium",...i})=>{const m=[[`dropin-skeleton-row__${o}`,o],[`dropin-skeleton-row__${o}-${t}`,o&&t]];if(!n&&o==="empty")return e("div",{className:r(["dropin-skeleton-row dropin-skeleton-row__empty",l])});if(n){const p=n.trim();return e("div",{...i,class:r(["dropin-skeleton-row",["dropin-skeleton-row--full",s],l]),dangerouslySetInnerHTML:{__html:p}})}return a>re===!1?e("div",{...i,class:r(["dropin-skeleton-row",["dropin-skeleton-row--full",s],"dropin-skeleton--row__content",...m,l])}):e("div",{...i,style:{"--multiline-gap-spacing":`var(--spacing-${c})`},class:r(["dropin-skeleton-row--multiline",["dropin-skeleton-row--full",s],l]),children:Array.from({length:a}).map((p,u)=>e("div",{class:r(["dropin-skeleton-row",["dropin-skeleton-row--full",s],"dropin-skeleton--row__content",...m])},u))})},le=({className:l,children:s,rowGap:a="medium",...t})=>e("div",{style:{"--row-gap-spacing":`var(--spacing-${a})`},...t,className:r(["dropin-skeleton",l]),role:"status","aria-label":"Loading...",children:s}),ce=fe({locale:"en-US"}),_r=({lang:l="en_US",langDefinitions:s={},className:a,children:t,...o})=>{const n=M(()=>{const i=J(s.default,s[l]??{});return J(Ve(l),i)},[l,s]),c=l.replace("_","-");return e(ce.Provider,{value:{locale:c},children:e(Se,{definition:n,children:e("div",{...o,className:r(["dropin-design",a]),children:t})})})},Re=function(){const s=typeof document<"u"&&document.createElement("link").relList;return s&&s.supports&&s.supports("modulepreload")?"modulepreload":"preload"}(),Fe=function(l){return"/"+l},te={},f=function(s,a,t){let o=Promise.resolve();if(a&&a.length>0){document.getElementsByTagName("link");const n=document.querySelector("meta[property=csp-nonce]"),c=(n==null?void 0:n.nonce)||(n==null?void 0:n.getAttribute("nonce"));o=Promise.all(a.map(i=>{if(i=Fe(i),i in te)return;te[i]=!0;const m=i.endsWith(".css"),_=m?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${i}"]${_}`))return;const p=document.createElement("link");if(p.rel=m?"stylesheet":Re,m||(p.as="script",p.crossOrigin=""),p.href=i,c&&p.setAttribute("nonce",c),document.head.appendChild(p),m)return new Promise((u,d)=>{p.addEventListener("load",u),p.addEventListener("error",()=>d(new Error(`Unable to preload CSS for ${i}`)))})}))}return o.then(()=>s()).catch(n=>{const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=n,window.dispatchEvent(c),!c.defaultPrevented)throw n})},Be={Add:v(()=>f(()=>import("./chunks/icons/Add.js").then(l=>l.$),[])),Bulk:v(()=>f(()=>import("./chunks/icons/Bulk.js"),[])),Burger:v(()=>f(()=>import("./chunks/icons/Burger.js"),[])),Cart:v(()=>f(()=>import("./chunks/icons/Cart.js"),[])),Check:v(()=>f(()=>import("./chunks/icons/Check.js"),[])),ChevronDown:v(()=>f(()=>import("./chunks/icons/ChevronDown.js"),[])),ChevronUp:v(()=>f(()=>import("./chunks/icons/ChevronUp.js"),[])),ChevronRight:v(()=>f(()=>import("./chunks/icons/ChevronRight.js"),[])),Close:v(()=>f(()=>import("./chunks/icons/Close.js"),[])),Heart:v(()=>f(()=>import("./chunks/icons/Heart.js"),[])),Minus:v(()=>f(()=>import("./chunks/icons/Minus.js"),[])),Placeholder:v(()=>f(()=>import("./chunks/icons/Placeholder.js"),[])),PlaceholderFilled:v(()=>f(()=>import("./chunks/icons/PlaceholderFilled.js"),[])),Search:v(()=>f(()=>import("./chunks/icons/Search.js"),[])),SearchFilled:v(()=>f(()=>import("./chunks/icons/SearchFilled.js"),[])),Sort:v(()=>f(()=>import("./chunks/icons/Sort.js"),[])),Star:v(()=>f(()=>import("./chunks/icons/Star.js"),[])),View:v(()=>f(()=>import("./chunks/icons/View.js"),[])),User:v(()=>f(()=>import("./chunks/icons/User.js"),[])),Warning:v(()=>f(()=>import("./chunks/icons/Warning.js"),[])),Locker:v(()=>f(()=>import("./chunks/icons/Locker.js"),[])),Wallet:v(()=>f(()=>import("./chunks/icons/Wallet.js"),[])),Card:v(()=>f(()=>import("./chunks/icons/Card.js"),[])),Order:v(()=>f(()=>import("./chunks/icons/Order.js"),[])),Delivery:v(()=>f(()=>import("./chunks/icons/Delivery.js"),[])),OrderError:v(()=>f(()=>import("./chunks/icons/OrderError.js"),[])),OrderSuccess:v(()=>f(()=>import("./chunks/icons/OrderSuccess.js"),[])),PaymentError:v(()=>f(()=>import("./chunks/icons/PaymentError.js"),[])),CheckWithCircle:v(()=>f(()=>import("./chunks/icons/CheckWithCircle.js"),[])),WarningWithCircle:v(()=>f(()=>import("./chunks/icons/WarningWithCircle.js"),[])),WarningFilled:v(()=>f(()=>import("./chunks/icons/WarningFilled.js"),[])),InfoFilled:v(()=>f(()=>import("./chunks/icons/InfoFilled.js"),[])),HeartFilled:v(()=>f(()=>import("./chunks/icons/HeartFilled.js"),[])),Trash:v(()=>f(()=>import("./chunks/icons/Trash.js"),[])),Eye:v(()=>f(()=>import("./chunks/icons/Eye.js"),[])),EyeClose:v(()=>f(()=>import("./chunks/icons/EyeClose.js"),[])),Date:v(()=>f(()=>import("./chunks/icons/Date.js"),[]))};function O({source:l,size:s="24",stroke:a="2",viewBox:t="0 0 24 24",className:o,...n}){const c=typeof l=="string"?Be[l]:null,i={className:r(["dropin-icon",`dropin-icon--shape-stroke-${a}`,o]),width:s,height:s,viewBox:t};return e(we,{fallback:null,children:c?e(c,{...n,...i}):e(l,{...n,...i})})}const qe=({name:l,value:s="1",className:a,disabled:t,error:o,success:n,min:c,max:i,onValue:m,onUpdateError:_,size:p="medium",...u})=>{const[d,h]=V(Number(s)),b=Number(c),y=Number(i);z(()=>{h(Number(s))},[s]);const k=R(ne(async g=>{if(m)try{await m(g)}catch(x){_&&_(x)}},200),[m,_]),w=g=>{let x=g;g<b&&(x=b),g>y&&(x=y),k(x),h(x)};return e("div",{className:r(["dropin-incrementer",`dropin-incrementer--${p}`,a]),children:e("div",{className:r(["dropin-incrementer__content",`dropin-incrementer__content--${p}`,["dropin-incrementer__content--error",o],["dropin-incrementer__content--success",n],["dropin-incrementer__content--disabled",t]]),children:[e("div",{className:r(["dropin-incrementer__button-container",["dropin-incrementer__button-container--disabled",t]]),children:e(Y,{children:e("button",{type:"button",className:r(["dropin-incrementer__decrease-button",["dropin-incrementer__decrease-button--disabled",t]]),onClick:()=>w(d-1),disabled:t||d<b+1,"aria-label":e(I,{id:"Dropin.Incrementer.decreaseLabel"}),children:e(O,{source:U,size:"16",stroke:"1",viewBox:"4 2 20 20",className:"dropin-incrementer__down"})})})}),e("input",{className:"dropin-incrementer__input",max:i,min:c,step:1,type:"number",name:l,value:d,disabled:t,onChange:g=>{const x=g.currentTarget.value;x!==""&&w(Number(x))},...u}),e("div",{className:r(["dropin-incrementer__button-container",["dropin-incrementer__button-container--disabled",t]]),children:e(Y,{children:e("button",{type:"button",className:r(["dropin-incrementer__increase-button",["dropin-incrementer__increase-button--disabled",t]]),onClick:()=>w(d+1),disabled:t||d>y-1,"aria-label":e(I,{id:"Dropin.Incrementer.increaseLabel"}),children:e(O,{source:K,size:"16",stroke:"1",viewBox:"4 2 20 20",className:"dropin-incrementer__add"})})})})]})})},de=({name:l,value:s,variant:a="primary",className:t,disabled:o,error:n,floatingLabel:c,onValue:i,onUpdateError:m,size:_="medium",icon:p,maxLength:u,success:d,...h})=>{const b=(h==null?void 0:h.id)||l||`dropin-input-${Math.random().toString(36)}`,y=R(ne(async w=>{if(i)try{await i(w)}catch(g){m&&m(g)}},200),[i,m]),k=w=>{const g=w.target;y(g.value.trim())};return e("div",{className:r(["dropin-input-container",`dropin-input-container--${a}`,["dropin-input-container--floating",!!c],["dropin-input-container--disabled",o]]),children:[p&&e(N,{node:p,className:r(["dropin-input__field-icon--left",p.props.className])}),e("div",{className:"dropin-input-label-container",children:[e("input",{id:b,onChange:k,type:"text",maxLength:u,name:l,value:s,...h,className:r(["dropin-input",`dropin-input--${_}`,`dropin-input--${a}`,["dropin-input--error",!!n],["dropin-input--success",!!d],["dropin-input--disabled",o],["dropin-input--floating",!!c],["dropin-input--icon-left",!!p],t]),disabled:o}),c&&e("label",{htmlFor:b,className:r([["dropin-input__label--floating",!!c],["dropin-input__label--floating--icon-left",!!p],["dropin-input__label--floating--error",!!n]]),children:c})]}),n&&e("div",{className:r(["dropin-input__field-icon--right","dropin-input__field-icon--error"]),children:e(O,{source:Pe,size:"16",stroke:"2",className:"dropin-input--warning-icon",viewBox:"-1 -1 26 26"})}),d&&e("div",{className:r(["dropin-input__field-icon--right","dropin-input__field-icon--success"]),children:e(O,{source:Ee,size:"16",stroke:"2",className:"dropin-input--success-icon",viewBox:"-1 -1 26 26"})})]})},ur=({name:l="",error:s,value:a,label:t,onChange:o,onBlur:n,...c})=>{const i=S({picker:"Dropin.InputDate.picker"}),m=u=>{u.currentTarget.setAttribute("type","date")},_=u=>{var h;const d=(h=u.currentTarget.parentElement)==null?void 0:h.querySelector("input");d==null||d.focus(),d==null||d.showPicker()},p=u=>{u.currentTarget.setAttribute("type","text"),n==null||n(u)};return e("div",{className:r(["dropin-input-date"]),children:[e(me,{error:s,children:e(de,{error:!!s,name:l,value:a==null?void 0:a.toString(),placeholder:t,floatingLabel:t,onFocus:m,onBlur:p,onChange:o,"aria-labelledby":t,className:"dropin-input-date__input",...c})}),e("button",{className:"dropin-input-date__icon","aria-label":i.picker,onClick:_,children:e(O,{source:Te,size:"24"})})]})},ie={pending:e(U,{}),success:e(oe,{}),error:e(Z,{style:{fill:"red"}})},We=({minLength:l=0,requiredCharacterClasses:s=0,uniqueSymbolsStatus:a="pending",validateLengthConfig:t={status:"",icon:"",message:""}})=>{const o=S({chartTwoSymbols:"Dropin.PasswordStatusIndicator.chartTwoSymbols",chartThreeSymbols:"Dropin.PasswordStatusIndicator.chartThreeSymbols",chartFourSymbols:"Dropin.PasswordStatusIndicator.chartFourSymbols"}),n=c=>{switch(c){case 2:return o.chartTwoSymbols;case 3:return o.chartThreeSymbols;case 4:return o.chartFourSymbols;default:return""}};return e("div",{className:r(["dropin-password-status-indicator"]),children:[l>0?e("div",{className:`dropin-password-status-indicator__item dropin-password-status-indicator__item--${t.status}`,"data-testid":`dropin-password-status-indicator__item--${t.icon}`,children:[ie[t.icon],e("span",{className:`${t.status}`,children:t.message})]}):null,s>=2?e("div",{className:`dropin-password-status-indicator__item dropin-password-status-indicator__item--${a}`,"data-testid":`dropin-password-status-indicator__item--${a}`,children:[ie[a],e("span",{className:"pending",children:n(s)})]}):null]})},hr=({name:l,required:s,className:a,minLength:t,error:o=!1,defaultValue:n="",uniqueSymbolsStatus:c,validateLengthConfig:i,requiredCharacterClasses:m,onValue:_,onBlur:p,...u})=>{const d=S({requiredFieldError:"Dropin.InputPassword.requiredFieldError",placeholder:"Dropin.InputPassword.placeholder",buttonTitle:"Dropin.InputPassword.buttonTitle"}),[h,b]=V(!1),y=R(()=>{b(g=>!g)},[]),w=o&&!n.length?d.requiredFieldError:o&&n.length?"&thinsp;":"";return e("div",{"data-testid":"passwordFieldInput",className:r(["dropin-input-password",["dropin-input-password--error",o],["dropin-input-password--hide-label",o&&!!n.length],a]),...u,children:[e(me,{error:w,children:e(de,{name:l??"password",type:h?"text":"password",placeholder:d.placeholder,floatingLabel:d.placeholder,"aria-label":d.placeholder,"aria-required":!0,required:s||!1,value:n,onValue:_,icon:e(Ie,{}),onBlur:p,"data-testid":"passwordInput"})}),e(q,{"aria-label":d.buttonTitle,title:d.buttonTitle,type:"button","data-testid":"toggle-password-icon",variant:"tertiary",className:r(["dropin-input-password__eye-icon",`dropin-input-password__eye-icon--${h?"show":"hide"}`,a]),onClick:y,children:h?e($e,{}):e(Ce,{})}),e(We,{minLength:t,requiredCharacterClasses:m,validateLengthConfig:i,uniqueSymbolsStatus:c})]})},br=({disabled:l,name:s="",errorMessage:a,value:t,label:o,className:n,onChange:c,onBlur:i,...m})=>{const _=(m==null?void 0:m.id)||s||`dropin-textarea-${Math.random().toString(36)}`,p=!!(a!=null&&a.length),u=R(d=>{const h=d.target;h.style.height="auto",h.style.height=`${h.scrollHeight}px`,c==null||c(d)},[c]);return e("div",{className:r(["dropin-textarea-container",n]),"data-testid":"dropin-textarea-container",children:[e("textarea",{"data-testid":"dropin-textarea-field",className:r(["dropin-textarea",["dropin-textarea--error",p],["dropin-textarea--disabled",!!l]]),id:_,placeholder:o,name:s,value:t,disabled:l,onBlur:i,onChange:u,...m}),e("label",{htmlFor:_,className:r(["dropin-textarea__label--floating",["dropin-textarea__label--floating--error",p]]),children:o}),p?e("div",{className:r(["dropin-textarea__label--floating--text",["dropin-textarea__label--floating--error",p]]),children:a}):null]})},ze=({className:l,src:s,params:a,loading:t="lazy",srcSet:o,onLoad:n,...c})=>{const[i,m]=V(!1),_=M(()=>{if(o)return o;if(!(!s||!a))return ge(s,{...a})},[a,s,o]),p=u=>{m(!0),n==null||n(u)};return e("img",{...c,className:r(["dropin-image",["dropin-image--loaded",i],l]),loading:t,onLoad:p,src:s,srcSet:_})},pe=({variant:l="primary",className:s})=>e("hr",{role:"separator",className:r(["dropin-divider",`dropin-divider--${l}`,s])}),B=({amount:l=0,currency:s,locale:a=void 0,variant:t="default",weight:o="bold",className:n,children:c,sale:i=!1,formatOptions:m={},size:_="small",...p})=>{const u=M(()=>new Intl.NumberFormat(a,{style:"currency",currency:s||"USD",minimumFractionDigits:2,maximumFractionDigits:2,...m}),[a,s,m]),d=M(()=>u.format(l),[l,u]);return e("span",{...p,className:r(["dropin-price",`dropin-price--${t}`,`dropin-price--${_}`,`dropin-price--${o}`,["dropin-price--sale",i],n]),children:d})},yr=({name:l,label:s,value:a,size:t="medium",checked:o=!1,disabled:n=!1,error:c=!1,description:i="",className:m,children:_,...p})=>e("label",{className:r([m,"dropin-radio-button",["dropin-radio-button--error",c],["dropin-radio-button--disabled",n]]),children:[e("input",{name:l,value:a,checked:o,disabled:n,type:"radio",className:r(["dropin-radio-button__input",["dropin-radio-button__input--error",c],["dropin-radio-button__input--disabled",n]]),...p}),e("span",{className:r(["dropin-radio-button__label",`dropin-radio-button__label--${t}`,["dropin-radio-button__label--error",c],["dropin-radio-button__label--disabled",n]]),children:s}),e("span",{className:r(["dropin-radio-button__description",`dropin-radio-button__description--${t}`,["dropin-radio-button__description--disabled",n]]),children:i})]}),q=({value:l,variant:s="primary",size:a="medium",icon:t,className:o,children:n,disabled:c=!1,active:i=!1,activeChildren:m,activeIcon:_,href:p,...u})=>{let d="dropin-button";(t&&!n||t&&i&&!m||!t&&i&&_)&&(d="dropin-iconButton"),i&&m&&(d="dropin-button"),o=r([d,`${d}--${a}`,`${d}--${s}`,[`${d}--${s}--disabled`,c],n&&t&&`${d}--with-icon`,!n&&m&&t&&`${d}--with-icon`,i&&_&&`${d}--with-icon`,o]);const h=r(["dropin-button-icon",`dropin-button-icon--${s}`,[`dropin-button-icon--${s}--disabled`,c],t==null?void 0:t.props.className]),b=p?{node:e("a",{}),role:"link",href:p,...u,disabled:c,active:i,onKeyDown:y=>{c&&y.preventDefault()},tabIndex:c?-1:0}:{node:e("button",{}),role:"button",...u,value:l,disabled:c,active:i};return e(N,{...b,className:o,children:[t&&!i&&e(N,{node:t,className:h}),_&&i&&e(N,{node:_,className:h}),n&&!i&&(typeof n=="string"?e("span",{children:n}):n),i&&m&&(typeof m=="string"?e("span",{children:m}):m)]})},Nr=({name:l,value:s=null,options:a,variant:t="primary",floatingLabel:o,size:n="medium",handleSelect:c=()=>{},disabled:i=!1,error:m=!1,placeholder:_,defaultOption:p,icon:u,className:d,...h})=>{var D;const b=(h==null?void 0:h.id)||l||`dropin-picker-${Math.random().toString(36)}`,y=a==null?void 0:a.find(E=>!E.disabled),[k,w]=V({value:s,text:(p==null?void 0:p.text)||_||(y==null?void 0:y.text),icon:u});z(()=>{const E=a==null?void 0:a.find(T=>T.value===s);w(E??{value:(p==null?void 0:p.value)||(_||o?null:y==null?void 0:y.value),text:(p==null?void 0:p.text)||_||(y==null?void 0:y.text),icon:u})},[s,a,_,u,p,o]);const g=E=>{const{options:T,value:C}=E.target;for(const F of T)F.selected&&(w({value:C,text:F.text,icon:u}),c(E))},x=a==null?void 0:a.map(E=>{const{value:T,text:C,disabled:F}=E,j=T===k.value;return e("option",{value:T,selected:j,disabled:F,className:r(["dropin-picker__option"]),children:C},T)}),L=G(null),$=!((D=L.current)!=null&&D.selected)||!!p;return e("div",{className:r([d,"dropin-picker",`dropin-picker__${n}`,["dropin-picker__floating",!!o],["dropin-picker__selected",$],["dropin-picker__error",m],["dropin-picker__disabled",i],["dropin-picker__icon",u]]),children:[u&&e(u.type,{...u.props,className:"dropin-picker__icon--placeholder"}),e("select",{id:b,className:r(["dropin-picker__select",`dropin-picker__select--${t}`,`dropin-picker__select--${n}`,["dropin-picker__select--floating",!!o]]),name:l,"aria-label":l,disabled:i,onChange:g,...h,children:[!p&&(o||_)&&e("option",{value:"",ref:L,className:r(["dropin-picker__option dropin-picker__placeholder"]),children:o??_},s),x]}),e(O,{source:se,size:"24",stroke:"2",className:"dropin-picker__chevronDown"}),o&&$&&e("label",{htmlFor:b,className:r(["dropin-picker__floatingLabel",!!o]),children:o})]})},me=({className:l,label:s,error:a,hint:t,success:o,size:n="medium",disabled:c=!1,children:i,...m})=>{var u;const _=((u=i==null?void 0:i.props)==null?void 0:u.id)??`dropin-field-${Math.random().toString(36)}`,p=i&&typeof i.type!="string"?i.type:null;return e("div",{...m,className:r(["dropin-field",l]),children:[s&&e("label",{className:r(["dropin-field__label",["dropin-field__label--disabled",c],`dropin-field__label--${n}`]),htmlFor:_,children:s}),e("div",{className:r(["dropin-field__content"]),children:p&&i&&ke(p,{...i.props,id:_,key:i.key,disabled:c,size:n,error:!!a,success:!!o&&!a})}),e("div",{className:r(["dropin-field__hint",[`dropin-field__hint--${n}`,n],["dropin-field__hint--error",!!a],["dropin-field__hint--success",!!o&&!a],["dropin-field__hint--disabled",!!c]]),children:a||o||t})]})},gr=({icon:l,className:s,children:a,active:t=!1,disabled:o=!1,...n})=>e("button",{role:"button",disabled:o,...n,className:r(["dropin-action-button",["dropin-action-button--active",t],["dropin-action-button--disabled",o],s]),children:[l&&e(N,{node:l,className:r(["dropin-action-button-icon"])}),a&&(typeof a=="string"?e("span",{children:a}):a)]}),vr=({className:l,variant:s="primary",activeOption:a,disabled:t=!1,dividers:o=!0,children:n,handleSelect:c,...i})=>{const[m,_]=V(a),p=R(d=>{t||d.props.disabled||(_(d.props.value),c&&c(d.props.value))},[c,_,t]),u=ae.map(n,d=>{const h=t||d.props.disabled,b=d.props.value===m;return xe(d,{disabled:h,active:b,onClick:()=>p(d),className:r(["dropin-action-button-group__option",`dropin-action-button-group__option--${s}`,["dropin-action-button-group__option--active",b],["dropin-action-button-group__option--with-dividers",o]])})});return e("div",{role:"group",...i,className:r(["dropin-action-button-group",`dropin-action-button-group--${s}`,l]),children:u})},He=({variant:l="primary",className:s,children:a,...t})=>e("div",{...t,className:r(["dropin-card",`dropin-card--${l}`,s]),children:e("div",{class:"dropin-card__content",children:a})}),fr=({name:l,value:s,size:a="medium",disabled:t=!1,error:o=!1,label:n="",description:c="",className:i,checked:m,..._})=>{const[p,u]=V(m===void 0?!1:m),d=G(null),h=y=>{var k;(k=_.onChange)==null||k.call(_,y),u(y.currentTarget.checked)},b=y=>{var k;y.key===" "&&(y.preventDefault(),(k=d==null?void 0:d.current)==null||k.click())};return e("label",{className:r(["dropin-checkbox",["dropin-checkbox--disabled",t]]),children:[e("input",{ref:d,name:l,value:s,type:"checkbox",disabled:t,className:r(["dropin-checkbox__checkbox",["dropin-checkbox__checkbox--error",o],i]),..._,onChange:h,checked:p}),e("span",{"aria-checked":p?"true":"false","aria-labelledby":`${l}-label`,"aria-describedby":`${l}-description`,className:r(["dropin-checkbox__box",["dropin-checkbox__box--error",o],["dropin-checkbox__box--disabled",t]]),role:"checkbox",tabIndex:t?-1:0,onKeyDown:b,children:e(O,{className:r(["dropin-checkbox__checkmark"]),source:oe,size:"16",stroke:"3"})}),e("div",{id:`${l}-label`,className:r(["dropin-checkbox__label",`dropin-checkbox__label--${a}`,["dropin-checkbox__label--disabled",t]]),children:n}),e("div",{}),e("div",{id:`${l}-description`,role:"note",className:r(["dropin-checkbox__description",`dropin-checkbox__description--${a}`,["dropin-checkbox__description--disabled",t]]),children:c})]})},wr=({className:l,name:s,value:a,id:t,label:o,groupAriaLabel:n,size:c="medium",color:i,disabled:m=!1,selected:_=!1,outOfStock:p=!1,multi:u=!1,onValue:d,onUpdateError:h,...b})=>{const y=S("Dropin.Swatches.outOfStock.label").label,k=S("Dropin.Swatches.selected.label").label,w=S("Dropin.Swatches.swatch.label").label,g=R(async T=>{if(d)try{await d(T)}catch(C){h&&h(C)}},[d,h]),x=T=>{const C=T.target;g(C.value)},D=i&&(T=>{const C=new Option().style;return C.color=T,C.color!==""})(i)?i:"var(--color-gray-300);",E=()=>p?`${n}: ${o} ${y}`:_?`${n}: ${o} ${k}`:`${n}: ${o} ${w}`;return e("label",{className:r(["dropin-color-swatch__container",`dropin-color-swatch__container--${c}`,l]),children:[e("input",{type:u?"checkbox":"radio",name:s,id:t,value:a,"aria-label":E(),checked:_,disabled:m,onChange:x,...b,className:r(["dropin-color-swatch",["dropin-color-swatch--selected",_],["dropin-color-swatch--disabled",m],l])}),e("span",{style:{"--bg-color":D},className:r(["dropin-color-swatch__span",["dropin-color-swatch__span--out-of-stock",p],l])})]})},kr=({className:l,name:s,value:a,label:t,groupAriaLabel:o,id:n,disabled:c=!1,selected:i=!1,outOfStock:m=!1,multi:_=!1,onValue:p,onUpdateError:u,...d})=>{const h=S("Dropin.Swatches.outOfStock.label").label,b=S("Dropin.Swatches.selected.label").label,y=S("Dropin.Swatches.swatch.label").label,[k,w]=V(!1),g=G(null),x=R(async D=>{if(p)try{await p(D)}catch(E){u&&u(E)}},[p,u]),L=D=>{const E=D.target;x(E.value)},$=()=>m?`${o}: ${t} ${h}`:i?`${o}: ${t} ${b}`:`${o}: ${t} ${y}`;return z(()=>{g.current&&g.current.scrollWidth>g.current.clientWidth&&w(!0)},[t]),e("div",{className:"dropin-text-swatch__container",...k?{"data-tooltip":t}:{},children:[e("input",{type:_?"checkbox":"radio",name:s,id:n,value:a,"aria-label":$(),checked:i,disabled:c,onChange:L,...d,className:r(["dropin-text-swatch",["dropin-text-swatch--selected",i],["dropin-text-swatch--disabled",c],l])}),e("label",{htmlFor:n,ref:g,className:r(["dropin-text-swatch__label",["dropin-text-swatch__label--out-of-stock",m],l]),children:t})]})},Me=({ariaLabel:l,size:s="small",stroke:a="4",children:t,className:o,style:n,...c})=>{const i=["dropin-progress-spinner",`dropin-progress-spinner--shape-size-${s}`,`dropin-progress-spinner--shape-stroke-${a}`],m=S({updating:"Dropin.ProgressSpinner.updating.label",updatingChildren:"Dropin.ProgressSpinner.updatingChildren.label"}),_=()=>l||(t?m.updatingChildren:m.updating);return t?e("div",{...c,className:r(["dropin-progress-spinner-provider"]),"aria-live":"polite",role:"status",children:[e("div",{"aria-hidden":!0,children:t}),e("div",{"aria-label":_(),role:"status",className:r(["dropin-progress-spinner-background",o]),style:n}),e("div",{className:r(["dropin-progress-spinner-with-provider",...i]),"aria-hidden":!0})]}):e("div",{...c,className:r([o,...i]),"aria-live":"polite",role:"status","aria-label":_()})},xr=({className:l,name:s,value:a,id:t,label:o,groupAriaLabel:n,src:c,alt:i,disabled:m=!1,selected:_=!1,outOfStock:p=!1,multi:u=!1,onValue:d,onUpdateError:h,...b})=>{const y=S("Dropin.Swatches.outOfStock.label").label,k=S("Dropin.Swatches.selected.label").label,w=S("Dropin.Swatches.swatch.label").label,g=R(async $=>{if(d)try{await d($)}catch(D){h&&h(D)}},[d,h]),x=$=>{const D=$.target;g(D.value)},L=()=>p?`${n}: ${o} ${y}`:_?`${n}: ${o} ${k}`:`${n}: ${o} ${w}`;return e("label",{className:r(["dropin-image-swatch__container",l]),children:[e("input",{type:u?"checkbox":"radio",name:s,id:t,value:a,"aria-label":L(),checked:_,disabled:m,onChange:x,...b,className:r(["dropin-image-swatch",["dropin-image-swatch--selected",_],["dropin-image-swatch--disabled",m],l])}),e("span",{className:r(["dropin-image-swatch__span",["dropin-image-swatch__span--out-of-stock",p],l]),children:e(ze,{src:c,className:r(["dropin-image-swatch__content"]),params:{width:100,fit:"bounds",crop:!0},alt:i,loading:"lazy",onError:$=>$.target.style.display="none"})})]})},_e=({className:l,children:s,title:a,secondaryText:t,actionIconPosition:o="left",iconOpen:n=K,iconClose:c=U,iconLeft:i=K,showIconLeft:m=!1,renderContentWhenClosed:_=!0,onStateChange:p,...u})=>{const[d,h]=V(!1),b=x=>{x.stopImmediatePropagation();const L=!d;h(L),p==null||p(L)},y=S(`Dropin.Accordion.${d?"close":"open"}.label`).label,k=e(O,{source:n,size:"24",onClick:b,onKeyPress:b,className:"dropin-accordion-section__open-icon"}),w=e(O,{source:c,size:"24",onClick:b,onKeyPress:b,className:"dropin-accordion-section__close-icon"}),g=e(O,{source:i,size:"24"});return e("div",{...u,className:r(["dropin-accordion-section",l]),children:[e("div",{className:"dropin-accordion-section__heading",children:[e("div",{className:"dropin-accordion-section__flex",onClick:b,onKeyPress:b,role:"button","aria-label":`${y} ${a}`,tabIndex:0,children:e("div",{className:"dropin-accordion-section__title-container",children:[o==="left"&&(d?w:k),m&&g,e("h3",{className:"dropin-accordion-section__title",children:a})]})}),e("div",{className:"dropin-accordion-section__secondary-text-container",children:[t&&e("h4",{className:"dropin-accordion-section__secondary-text",children:t}),o==="right"&&(d?w:k)]})]}),e("div",{className:"dropin-accordion-section__content-container",style:{display:d?"grid":"none"},children:(d||_&&!d)&&s})]})},Ke=({className:l,children:s,actionIconPosition:a="left",iconOpen:t=K,iconClose:o=U,...n})=>{const c=e(pe,{variant:"secondary"}),i=m=>e(A,{children:[e(_e,{...m.props,actionIconPosition:a,iconOpen:t,iconClose:o}),c]});return e("div",{...n,className:r(["dropin-accordion",l]),children:[c,...(Array.isArray(s)?s:[s]).map(i)]})},Dr=({variant:l="primary",className:s,type:a="warning",additionalActions:t,onDismiss:o,heading:n,description:c,icon:i,...m})=>{var p,u,d;const _=S({dismiss:"Dropin.InlineAlert.dismissLabel"});return e("div",{...m,className:r(["dropin-in-line-alert",`dropin-in-line-alert--${a}`,`dropin-in-line-alert--${l}`,s]),children:[e("div",{className:"dropin-in-line-alert__heading",children:[e("div",{className:"dropin-in-line-alert__title-container",children:[i&&e(N,{node:i,className:"dropin-in-line-alert__icon"}),e("span",{className:"dropin-in-line-alert__title",children:n})]}),e("div",{className:"dropin-in-line-alert__actions-container",children:[(t==null?void 0:t.length)==1&&e(q,{variant:"tertiary",className:"dropin-in-line-alert__additional-action",onClick:(p=t[0])==null?void 0:p.onClick,"aria-label":(u=t[0])==null?void 0:u.label,children:(d=t[0])==null?void 0:d.label}),o&&e(q,{icon:e(O,{source:Z,size:"24",stroke:"2"}),className:"dropin-in-line-alert__dismiss-button",variant:"tertiary",onClick:o,"aria-label":_.dismiss})]})]}),c&&e("p",{className:"dropin-in-line-alert__description",children:c}),t&&(t==null?void 0:t.length)>1&&e("div",{className:"dropin-in-line-alert__additional-actions-container",children:t.map(h=>e(q,{variant:"tertiary",className:"dropin-in-line-alert__additional-action",onClick:h.onClick,children:h.label},h.label))})]})},Sr=({size:l="small",title:s=null,centered:a=!1,backgroundDim:t=!0,clickToDismiss:o=!0,escapeToDismiss:n=!0,onClose:c,showCloseButton:i=!0,className:m,children:_=null,...p})=>{const u=R(()=>{c==null||c()},[c]),d=S({modalCloseLabel:"Dropin.Modal.Close.label"});return z(()=>{const h=b=>{const y=document.querySelector(".dropin-modal"),k=document.querySelector(".dropin-modal__body");o&&y&&k&&!k.contains(b.target)&&u()};return document.addEventListener("mousedown",h),()=>{document.removeEventListener("mousedown",h)}},[u,o]),z(()=>{const h=b=>{b.key==="Escape"&&n&&u()};return document.addEventListener("keydown",h),()=>{document.removeEventListener("keydown",h)}},[u,n]),z(()=>{const h=document.scrollingElement,b=h.style.overflow;return h.style.overflow="hidden",()=>{h.style.overflow=b}},[]),e("div",{className:r(["dropin-modal",["dropin-modal--dim",t]]),children:e("div",{...p,className:r(["dropin-modal__body",[`dropin-modal__body--${l}`,l],m]),children:[e("div",{className:r(["dropin-modal__header",["dropin-modal__header-title",!!s]]),children:[s&&e("div",{className:r(["dropin-modal__header-title-content"]),children:s}),i&&e(q,{"aria-label":d.modalCloseLabel,variant:"tertiary",className:"dropin-modal__header-close-button",onClick:u,icon:e(Z,{})})]}),e("div",{className:r(["dropin-modal__content",["dropin-modal__body--centered",a]]),children:_})]})})},Er=({className:l,children:s,ariaLabel:a,image:t,title:o,price:n,taxIncluded:c=!1,taxExcluded:i=!1,total:m,totalExcludingTax:_,sku:p,configurations:u,warning:d,alert:h,quantity:b=1,description:y,loading:k=!1,updating:w=!1,onQuantity:g,onRemove:x,...L})=>{var E,T;const{locale:$}=De(ce),D=S({each:"Dropin.CartItem.each.label",quantity:"Dropin.CartItem.quantity.label",remove:"Dropin.CartItem.remove.label",removeDefault:"Dropin.CartItem.removeDefault.label",taxIncluded:"Dropin.CartItem.taxIncluded.label",taxExcluded:"Dropin.CartItem.taxExcluded.label",updating:"Dropin.CartItem.updating.label",updatingDefault:"Dropin.ProgressSpinner.updating.label"});return k?e(Ge,{}):e("div",{...L,className:r(["dropin-cart-item",["dropin-cart-item--updating",w],l]),children:[w&&e(Me,{className:r(["dropin-cart-item__spinner"]),ariaLabel:a?(E=D.updating)==null?void 0:E.replace("{product}",a):D.updatingDefault}),e("div",{className:"dropin-cart-item__wrapper",children:[e(N,{node:t,className:r(["dropin-cart-item__image"])}),e(N,{node:o,className:r(["dropin-cart-item__title",["dropin-cart-item__title--edit",!!g||!!x]])}),y&&e(N,{node:y,className:r(["dropin-cart-item__description"])}),e(N,{node:p,className:r(["dropin-cart-item__sku"])}),u&&e("ul",{className:r(["dropin-cart-item__configurations"]),children:Object.entries(u).map(([C,F])=>e("li",{className:r(["dropin-cart-item__configurations__item"]),children:[C,":"," ",e("strong",{className:r(["dropin-cart-item__configurations__item__value"]),children:F})]},C))}),e("span",{className:r(["dropin-cart-item__price"]),children:[!g&&e("span",{className:"dropin-cart-item__price__quantity",children:[b.toLocaleString($)," x"," "]}),e(N,{node:n,role:"text"}),b>1&&e(A,{children:[" ",D.each]}),c&&e("span",{"data-testid":"tax-message",className:"dropin-cart-item__price-tax-message",children:[" ",D.taxIncluded]}),i&&e("span",{"data-testid":"tax-message",className:"dropin-cart-item__price-tax-message",children:[" ",D.taxExcluded]})]}),e("div",{className:r(["dropin-cart-item__quantity",["dropin-cart-item__quantity--edit",!!g]]),children:[g?e(qe,{className:r(["dropin-cart-item__quantity__incrementer"]),value:b,min:1,onValue:C=>g==null?void 0:g(Number(C)),name:"quantity","aria-label":D.quantity,disabled:w}):e("span",{className:r(["dropin-cart-item__quantity__value"]),children:[D.quantity,":"," ",e("strong",{className:"dropin-cart-item__quantity__number",children:Number(b).toLocaleString($)})]}),d&&e(N,{node:d,className:r(["dropin-cart-item__warning","dropin-cart-item__warning--quantity"])}),h&&e(N,{node:h,className:r(["dropin-cart-item__alert","dropin-cart-item__alert--quantity"])})]}),d&&e(N,{node:d,className:r(["dropin-cart-item__warning"])}),h&&e(N,{node:h,className:r(["dropin-cart-item__alert"])}),e("div",{className:r(["dropin-cart-item__total",["dropin-cart-item__total--edit",!!x]]),children:[e("div",{className:"dropin-cart-item__row-total",children:e(N,{node:m,role:"text"})}),c&&e("div",{className:"dropin-cart-item__total-tax-included",children:e("span",{"data-testid":"tax-message",className:r(["dropin-cart-item__total-tax-message"]),children:D.taxIncluded})}),i&&e("div",{className:"dropin-cart-item__total-tax-excluded",children:e("span",{"data-testid":"tax-message",className:r(["dropin-cart-item__total-tax-excluded-message"]),children:[_&&e(N,{node:_,role:"text"})," ",D.taxExcluded]})})]})]}),x&&e(q,{className:r(["dropin-cart-item__remove"]),variant:"tertiary",onClick:()=>x==null?void 0:x(),icon:e(O,{source:Le,size:"24",stroke:"2",viewBox:"0 0 24 24","aria-label":a?(T=D.remove)==null?void 0:T.replace("{product}",a):D.removeDefault}),disabled:w})]})},Ge=()=>e("div",{className:"dropin-cart-item dropin-cart-item-skeleton",children:e(le,{className:"dropin-cart-item__skeleton dropin-cart-item__wrapper",children:[e("div",{className:"dropin-cart-item__image",children:e(W,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__title",children:e(W,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__sku",children:e(W,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__price",children:e(W,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__quantity",children:e(W,{className:"dropin-cart-item__skeleton__item"})}),e("div",{className:"dropin-cart-item__total",children:e(W,{className:"dropin-cart-item__skeleton__item"})})]})}),Pr=({className:l,children:s,...a})=>{const{heading:t,loading:o=!0,total:n,subTotal:c,shipping:i,taxTotal:m,taxesApplied:_,discounts:p,primaryAction:u,...d}=a,[h,b]=V(!1),y=G(null),[k,w]=V(!0),[g,x]=V("zip"),L=S({editZipAction:"Dropin.PriceSummary.shipping.editZipAction",destinationLinkAriaLabel:"Dropin.PriceSummary.shipping.destinationLinkAriaLabel",taxesBreakdownTitle:"Dropin.PriceSummary.taxes.breakdown",subtotalLabel:"Dropin.PriceSummary.subTotal.label",shippingLabel:"Dropin.PriceSummary.shipping.label",showTaxBreakdown:"Dropin.PriceSummary.taxes.showBreakdown",hideTaxBreakdown:"Dropin.PriceSummary.taxes.hideBreakdown",zipPlaceholder:"Dropin.PriceSummary.shipping.zipPlaceholder"}),$=P=>{P.preventDefault(),w(H=>!H)},D=P=>{P.preventDefault(),w(!0),x(H=>H==="zip"?"state":"zip")},E=P=>{var X;P.preventDefault(),w(!1);const H=ve(y.current);(X=i==null?void 0:i.onEstimate)==null||X.call(i,H)},T=e(le,{"data-testid":"loading-skeleton",rowGap:"xsmall",children:e(W,{variant:"row",size:"small",lines:5,fullWidth:!0,multilineGap:"xsmall"})}),C=()=>i?i.estimated?i.destinationText?e(A,{children:[e(I,{id:"Dropin.PriceSummary.shipping.estimatedDestination"}),e("a",{className:"dropin-price-summary__shippingLink",role:"button",href:"",onClick:$,onKeyDown:P=>{(P.key==="Enter"||P.key===" ")&&$(P)},tabIndex:0,"aria-label":L.destinationLinkAriaLabel,"aria-expanded":k,"data-testid":"shipping-destination-link",children:i.destinationText})]}):e(I,{id:"Dropin.PriceSummary.shipping.estimated"}):e(I,{id:"Dropin.PriceSummary.shipping.label"}):null,F=i&&e(A,{children:e("div",{"data-testid":"shipping-content",className:r(["dropin-price-summary__entry","dropin-price-summary__shipping"]),children:[e("span",{className:"dropin-price-summary__label",children:C()}),e(N,{node:i.price,className:"dropin-price-summary__price"}),i.estimated&&e(A,{children:e("div",{className:r(["dropin-price-summary__caption"]),children:e("a",{href:"#",className:"dropin-price-summary__shippingLink",onClick:D,"data-testid":"shipping-alternate-field-link",children:g==="zip"?e(I,{id:"Dropin.PriceSummary.shipping.alternateField.state"}):e(I,{id:"Dropin.PriceSummary.shipping.alternateField.zip"})})})}),i.estimated&&e(A,{children:e("form",{className:r(["dropin-price-summary__shipping--edit",["dropin-price-summary__shipping--hide",!k]]),ref:y,"data-testid":"shipping-estimate-form",children:[i.countryField&&e(N,{node:i.countryField,className:r(["dropin-price-summary__shipping--country"])}),g==="state"?i.stateField&&e(N,{node:i.stateField,className:r(["dropin-price-summary__shipping--state"])}):i.zipField&&e(N,{node:i.zipField,className:r(["dropin-price-summary__shipping--zip"])}),i.estimateButton&&e(N,{node:i.estimateButton,className:r(["dropin-price-summary__shipping--action"]),onClick:E,type:"submit"})]})}),i.taxIncluded&&e("div",{"data-testid":"shipping-tax-included",className:r(["dropin-price-summary__caption"]),children:e("span",{children:e(I,{id:"Dropin.PriceSummary.shipping.withTaxes"})})}),i.taxExcluded?e("div",{"data-testid":"shipping-tax-included-excluded",className:r(["dropin-price-summary__caption"]),children:e("span",{children:[i.priceExcludingTax," ",e(I,{id:"Dropin.PriceSummary.shipping.withoutTaxes"})]})}):void 0]})}),j=p&&e(A,{children:p.map(P=>e("div",{className:r(["dropin-price-summary__entry","dropin-price-summary__discount"]),children:[e("span",{className:r(["dropin-price-summary__label"]),children:P.label}),e(N,{node:P.price,className:r(["dropin-price-summary__price"])}),P.caption&&e(N,{node:P.caption,className:r(["dropin-price-summary__caption"])})]},P.label))}),ue=_?e(A,{children:e(Ke,{"data-testid":"tax-breakdown",className:"dropin-price-summary__taxes",iconOpen:se,iconClose:Ae,children:e(_e,{title:L.taxesBreakdownTitle,secondaryText:!h&&m?e(N,{node:m.price,className:"dropin-price-summary__price"}):void 0,renderContentWhenClosed:!1,onStateChange:b,children:[e("div",{className:r(["dropin-price-summary__appliedTaxes"]),children:_.map(P=>e("div",{className:r(["dropin-price-summary__entry","dropin-price-summary__taxEntry"]),children:[e("span",{className:r(["dropin-price-summary__label","dropin-price-summary__label--muted"]),children:P.label}),e(N,{node:P.price,className:r(["dropin-price-summary__price","dropin-price-summary__price--muted"])})]},P.label))}),e("div",{className:r(["dropin-price-summary__entry"]),children:[e("span",{className:"dropin-price-summary__label",children:e(I,{id:"Dropin.PriceSummary.taxes.total"})}),m&&e(N,{node:m.price,className:"dropin-price-summary__price"})]})]})})}):m&&e("div",{"data-testid":"tax-total-only",className:r(["dropin-price-summary__entry","dropin-price-summary__taxTotal"]),children:[e("span",{className:"dropin-price-summary__label",children:m.estimated?e(I,{id:"Dropin.PriceSummary.taxes.estimated"}):e(I,{id:"Dropin.PriceSummary.taxes.totalOnly"})}),e(N,{node:m.price,className:"dropin-price-summary__price"})]}),he=n&&e(A,{children:e("div",{"data-testid":"total-content",className:r(["dropin-price-summary__entry","dropin-price-summary__total",n.estimated&&"dropin-price-summary__total--padded"]),children:[e("span",{className:r(["dropin-price-summary__label","dropin-price-summary__label--bold"]),children:n.estimated?e(I,{id:"Dropin.PriceSummary.total.estimated"}):e(I,{id:"Dropin.PriceSummary.total.label"})}),e(N,{node:n.price,className:r(["dropin-price-summary__price","dropin-price-summary__price--bold"])})]})}),be=n&&n.priceWithoutTax&&e("div",{"data-testid":"total-without-tax",className:"dropin-price-summary__entry dropin-price-summary__totalWithoutTax",children:[e("span",{className:r(["dropin-price-summary__label","dropin-price-summary__label--muted"]),children:e(I,{id:"Dropin.PriceSummary.total.withoutTax"})}),e(N,{node:n.priceWithoutTax,className:r(["dropin-price-summary__price","dropin-price-summary__price--muted"])})]}),ye=u&&e("div",{className:r(["dropin-price-summary__entry","dropin-price-summary__primaryAction"]),children:u}),Ne=c&&e("div",{className:r(["dropin-price-summary__entry","dropin-price-summary__subTotal"]),children:[e("span",{className:"dropin-price-summary__label",children:e(I,{id:"Dropin.PriceSummary.subTotal.label"})}),e(N,{node:c.price,className:"dropin-price-summary__price"}),c.taxIncluded&&e("div",{"data-testid":"sub-total-tax-caption",className:r(["dropin-price-summary__caption"]),children:e("span",{children:e(I,{id:"Dropin.PriceSummary.subTotal.withTaxes"})})}),c.taxExcluded?e("div",{"data-testid":"sub-total-tax-caption-excluded",className:r(["dropin-price-summary__caption"]),children:e("span",{children:[c.priceExcludingTax," ",e(I,{id:"Dropin.PriceSummary.subTotal.withoutTaxes"})]})}):void 0]});return e("div",{...d,className:r(["dropin-price-summary",l]),children:[e("div",{className:"dropin-price-summary__heading",children:t}),e(pe,{variant:"primary",className:"dropin-price-summary__divider-primary"}),o?T:e(A,{children:[Ne,F,j,ue,he,be,ye]})]})},Tr=({className:l,children:s,...a})=>e("div",{...a,className:r(["dropin-cart-list",l]),children:e("div",{className:"dropin-cart-list__wrapper","aria-live":"assertive","aria-relevant":"all",children:ae.map(s,(t,o)=>e("div",{className:"dropin-cart-list__item",children:t},o))})}),Ir=({className:l,children:s,locale:a,currency:t,amount:o,variant:n="default",minimumAmount:c,maximumAmount:i,size:m="small",display:_="dash",specialPrice:p,sale:u=!1,...d})=>{const h=M(()=>o||c===i||c&&!i||i&&!c,[o,i,c]);return e("div",{children:h?e("div",{...d,className:r(["dropin-price-range",l]),children:e(B,{amount:o??c??i,currency:t,locale:a,size:m,variant:n,sale:u})}):e("div",{...d,className:r(["dropin-price-range",l]),children:[_==="dash"?e(Ue,{specialPrice:p,minimumAmount:c,maximumAmount:i,currency:t,locale:a,size:m,sale:u}):null,_==="from to"?e(Ze,{specialPrice:p,minimumAmount:c,maximumAmount:i,currency:t,locale:a,size:m,sale:u}):null,_==="as low as"?e(je,{specialPrice:p,minimumAmount:c,maximumAmount:i,currency:t,locale:a,size:m,sale:u}):null]})})};function Ue({specialPrice:l,minimumAmount:s,maximumAmount:a,currency:t,locale:o,size:n,sale:c}){return e(A,{children:[e(B,{amount:l??s,currency:t,locale:o,size:n,sale:!!l&&c}),e("span",{className:"dropin-price-range__separator",children:"-"}),e(B,{amount:a,currency:t,locale:o,size:n})]})}function Ze({specialPrice:l,minimumAmount:s,maximumAmount:a,currency:t,locale:o,size:n,sale:c}){const i=S({from:"Dropin.PriceRange.from.label",to:"Dropin.PriceRange.to.label",asLowAs:"Dropin.PriceRange.asLowAs.label"});return e(A,{children:[e("span",{className:r(["dropin-price-range__from",`dropin-price-range__from--${n}`]),children:i.from}),e(B,{amount:l??s,currency:t,locale:o,size:n,sale:!!l&&c}),e("span",{className:r(["dropin-price-range__to",`dropin-price-range__to--${n}`]),children:i.to}),e(B,{amount:a,currency:t,locale:o,size:n})]})}function je({specialPrice:l,minimumAmount:s,maximumAmount:a,currency:t,locale:o,size:n,sale:c}){const i=S({from:"Dropin.PriceRange.from.label",to:"Dropin.PriceRange.to.label",asLowAs:"Dropin.PriceRange.asLowAs.label"});return e(A,{children:[e("span",{className:r(["dropin-price-range__as-low-as",`dropin-price-range__as-low-as--${n}`]),children:i.asLowAs}),l?e("div",{children:[e(B,{amount:a,currency:t,locale:o,size:n,variant:"strikethrough"}),e(B,{amount:l,currency:t,locale:o,size:n,className:"dropin-price-range__special",sale:!!l&&c})]}):e(B,{amount:s,currency:t,locale:o,size:n})]})}const $r=({className:l,categories:s,separator:a,...t})=>e(A,{children:(s==null?void 0:s.length)>1&&e("nav",{role:"navigation",...t,className:r(["dropin-breadcrumbs__container",l]),children:e("ul",{className:"dropin-breadcrumbs__items",children:s==null?void 0:s.map((o,n)=>e("li",{className:r(["dropin-breadcrumbs__item",["dropin-breadcrumbs__item--last",n===s.length-1]]),children:[e(N,{node:o,className:"dropin-breadcrumbs__link"}),!a&&n!==s.length-1&&e("span",{className:"dropin-breadcrumbs__separator--default",children:[" ","/"," "]}),a&&n!==s.length-1&&e(N,{node:a,className:"dropin-breadcrumbs__separator--icon"})]},n))})})}),Cr=({className:l,variant:s,icon:a,message:t,onDismiss:o,action:n,...c})=>{const i=S({dismiss:"Dropin.InlineAlert.dismissLabel"});return e("div",{...c,className:r([l,"dropin-alert-banner",`dropin-alert-banner--${s}`]),children:[e("div",{className:"dropin-alert-banner__content",children:[a&&e(N,{node:a,"aria-hidden":"true",className:"dropin-alert-banner__icon"}),e(N,{node:t,className:r(["dropin-alert-banner__message"])})]}),e("div",{className:"dropin-alert-banner__actions",children:[n&&e(q,{variant:"tertiary",className:"dropin-alert-banner__action",onClick:n.onClick,"aria-label":n.label,children:n.label}),e(q,{icon:e(O,{source:Z,size:"24",stroke:"2"}),className:"dropin-alert-banner__dismiss-button",variant:"primary",onClick:o,"aria-label":i.dismiss})]})]})},Lr=({className:l,icon:s,heading:a,headingLevel:t=2,message:o,action:n,variant:c="secondary",...i})=>{const m=t>=1&&t<=6?`h${t}`:"h2";return e("div",{...i,className:r(["dropin-illustrated-message",l]),children:e(He,{variant:c,children:[s&&e(N,{node:s,"aria-hidden":"true",size:"80",className:"dropin-illustrated-message__icon"}),a&&e(m,{className:"dropin-illustrated-message__heading",children:a}),o&&e(N,{node:o,className:"dropin-illustrated-message__message"}),n&&e(N,{node:n,className:"dropin-illustrated-message__action"})]})})};export{Ke as Accordion,_e as AccordionSection,gr as ActionButton,vr as ActionButtonGroup,Cr as AlertBanner,$r as Breadcrumbs,q as Button,He as Card,Er as CartItem,Ge as CartItemSkeleton,Tr as CartList,fr as Checkbox,wr as ColorSwatch,pe as Divider,me as Field,O as Icon,Lr as IllustratedMessage,ze as Image,xr as ImageSwatch,Dr as InLineAlert,qe as Incrementer,de as Input,ur as InputDate,hr as InputPassword,Sr as Modal,Nr as Picker,B as Price,Ir as PriceRange,Pr as PriceSummary,Me as ProgressSpinner,yr as RadioButton,le as Skeleton,W as SkeletonRow,br as TextArea,kr as TextSwatch,ce as UIContext,_r as UIProvider};
+/*! Copyright 2024 Adobe
+All Rights Reserved. */
+import {jsx as e} from "./preact-jsx-runtime.js";
+import {a as oe, c as o, d as Z, g as fe, i as ve, R as be, V as y} from "./chunks/is-number.js";
+import {
+    _ as we,
+    A as le,
+    E as ke,
+    F as g,
+    G as ge,
+    h as B,
+    k as R,
+    L as Ne,
+    N as se,
+    q as C,
+    S as K,
+    T as q,
+    x as ye,
+    y as W
+} from "./chunks/icons/Add.js";
+import {IntlProvider as xe, Localizer as Q, Text as z, useText as I} from "./i18n.js";
+import U from "./chunks/icons/Minus.js";
+import De from "./chunks/icons/CheckWithCircle.js";
+import Ie from "./chunks/icons/WarningWithCircle.js";
+import Ee from "./chunks/icons/Date.js";
+import $e from "./chunks/icons/Locker.js";
+import Se from "./chunks/icons/Eye.js";
+import Te from "./chunks/icons/EyeClose.js";
+import de from "./chunks/icons/Check.js";
+import j from "./chunks/icons/Close.js";
+import J from "./chunks/icons/ChevronDown.js";
+import Le from "./chunks/icons/Trash.js";
+import "./chunks/image-params-keymap.js";
+import "./signals.js";
+
+const Pe = {
+    ExampleComponentName: {item: {label: "string"}},
+    Pagination: {backwardButton: {ariaLabel: "Go to previous page"}, forwardButton: {ariaLabel: "Go to next page"}},
+    Incrementer: {
+        decreaseLabel: "Decrease Quantity",
+        increaseLabel: "Increase Quantity",
+        label: "Quantity",
+        errorMessage: "Enter a valid quantity",
+        minQuantityMessage: "Enter at least {{minQuantity}}",
+        maxQuantityMessage: "Maximum quantity is {{maxQuantity}}"
+    },
+    Modal: {Close: {label: "Close"}},
+    InputPassword: {
+        placeholder: "Password",
+        floatingLabel: "Password",
+        buttonShowTitle: "Click to show password",
+        buttonHideTitle: "Click to hide password"
+    },
+    PasswordStatusIndicator: {
+        chartTwoSymbols: "Use characters and numbers or symbols",
+        chartThreeSymbols: "Use characters, numbers and symbols",
+        chartFourSymbols: "Use uppercase characters, lowercase characters, numbers and symbols",
+        messageLengthPassword: "At least {minLength} characters long"
+    },
+    InlineAlert: {dismissLabel: "Dismiss Alert"},
+    PriceSummary: {
+        subTotal: {label: "Subtotal", withTaxes: "Including taxes", withoutTaxes: "excluding taxes"},
+        shipping: {
+            label: "Shipping",
+            editZipAction: "Apply",
+            estimated: "Estimated Shipping",
+            estimatedDestination: "Estimated Shipping to ",
+            destinationLinkAriaLabel: "Change destination",
+            zipPlaceholder: "Zip Code",
+            withTaxes: "Including taxes",
+            withoutTaxes: "excluding taxes",
+            alternateField: {zip: "Estimate using country/zip", state: "Estimate using country/state"}
+        },
+        taxes: {
+            total: "Tax Total",
+            totalOnly: "Tax",
+            breakdown: "Taxes",
+            showBreakdown: "Show Tax Breakdown",
+            hideBreakdown: "Hide Tax Breakdown",
+            estimated: "Estimated Tax"
+        },
+        total: {estimated: "Estimated Total", label: "Total", withoutTax: "Total excluding taxes"}
+    },
+    ProgressSpinner: {updating: {label: "Item is updating"}, updatingChildren: {label: "Items are updating"}},
+    PriceRange: {from: {label: "From"}, to: {label: "to"}, asLowAs: {label: "As low as"}},
+    Swatches: {
+        outOfStock: {label: "out of stock swatch"},
+        selected: {label: "swatch selected"},
+        swatch: {label: "swatch"}
+    },
+    Accordion: {open: {label: "Open"}, close: {label: "Close"}},
+    CartItem: {
+        each: {label: "each"},
+        pricePerItem: {label: "price per item"},
+        quantity: {label: "Quantity"},
+        remove: {label: "Remove {product} from the cart"},
+        removeDefault: {label: "Remove item from the cart"},
+        taxIncluded: {label: "incl. VAT"},
+        taxExcluded: {label: "excl. tax"},
+        updating: {label: "{product} is updating"}
+    },
+    InputDate: {picker: "Select a date"}
+}, ee = {Dropin: Pe}, te = {default: ee, en_US: ee}, Oe = a => Z(te.default, te[a] || {}), re = 1, H = ({
+                                                                                                            className: a,
+                                                                                                            fullWidth: r = !1,
+                                                                                                            lines: n = re,
+                                                                                                            size: t = "small",
+                                                                                                            variant: s = "row",
+                                                                                                            children: i = null,
+                                                                                                            multilineGap: l = "medium",
+                                                                                                            ...d
+                                                                                                        }) => {
+    const _ = [[`dropin-skeleton-row__${s}`, s], [`dropin-skeleton-row__${s}-${t}`, s && t]];
+    if (!i && s === "empty") return e("div", {className: o(["dropin-skeleton-row dropin-skeleton-row__empty", a])});
+    if (i) {
+        const h = i.trim();
+        return e("div", {
+            ...d,
+            class: o(["dropin-skeleton-row", ["dropin-skeleton-row--full", r], a]),
+            dangerouslySetInnerHTML: {__html: h}
+        })
+    }
+    return n > re === !1 ? e("div", {
+        ...d,
+        class: o(["dropin-skeleton-row", ["dropin-skeleton-row--full", r], "dropin-skeleton--row__content", ..._, a])
+    }) : e("div", {
+        ...d,
+        style: {"--multiline-gap-spacing": `var(--spacing-${l})`},
+        class: o(["dropin-skeleton-row--multiline", ["dropin-skeleton-row--full", r], a]),
+        children: Array.from({length: n}).map((h, p) => e("div", {class: o(["dropin-skeleton-row", ["dropin-skeleton-row--full", r], "dropin-skeleton--row__content", ..._])}, p))
+    })
+}, Ce = ({
+             className: a,
+             children: r,
+             rowGap: n = "medium",
+             ...t
+         }) => e("div", {
+    style: {"--row-gap-spacing": `var(--spacing-${n})`}, ...t,
+    className: o(["dropin-skeleton", a]),
+    role: "status",
+    "aria-label": "Loading...",
+    children: r
+}), ce = ge({locale: "en-US"}), Ae = ({lang: a = "en_US", langDefinitions: r = {}, children: n}) => {
+    const t = q(() => {
+        const i = Z(r.default, r[a] ?? {});
+        return Z(Oe(a), i)
+    }, [a, r]), s = a.replace("_", "-");
+    return e(ce.Provider, {value: {locale: s}, children: e(xe, {definition: t, children: e(R, {children: n})})})
+}, ut = new be(e(Ae, {})), Ve = function () {
+    const r = typeof document < "u" && document.createElement("link").relList;
+    return r && r.supports && r.supports("modulepreload") ? "modulepreload" : "preload"
+}(), Re = function (a) {
+    return "/" + a
+}, ne = {}, N = function (r, n, t) {
+    let s = Promise.resolve();
+    if (n && n.length > 0) {
+        document.getElementsByTagName("link");
+        const i = document.querySelector("meta[property=csp-nonce]"),
+            l = (i == null ? void 0 : i.nonce) || (i == null ? void 0 : i.getAttribute("nonce"));
+        s = Promise.all(n.map(d => {
+            if (d = Re(d), d in ne) return;
+            ne[d] = !0;
+            const _ = d.endsWith(".css"), m = _ ? '[rel="stylesheet"]' : "";
+            if (document.querySelector(`link[href="${d}"]${m}`)) return;
+            const h = document.createElement("link");
+            if (h.rel = _ ? "stylesheet" : Ve, _ || (h.as = "script", h.crossOrigin = ""), h.href = d, l && h.setAttribute("nonce", l), document.head.appendChild(h), _) return new Promise((p, c) => {
+                h.addEventListener("load", p), h.addEventListener("error", () => c(new Error(`Unable to preload CSS for ${d}`)))
+            })
+        }))
+    }
+    return s.then(() => r()).catch(i => {
+        const l = new Event("vite:preloadError", {cancelable: !0});
+        if (l.payload = i, window.dispatchEvent(l), !l.defaultPrevented) throw i
+    })
+}, Be = {
+    Add: g(() => N(() => import("./chunks/icons/Add.js").then(a => a.$), [])),
+    Bulk: g(() => N(() => import("./chunks/icons/Bulk.js"), [])),
+    Burger: g(() => N(() => import("./chunks/icons/Burger.js"), [])),
+    Cart: g(() => N(() => import("./chunks/icons/Cart.js"), [])),
+    Check: g(() => N(() => import("./chunks/icons/Check.js"), [])),
+    ChevronDown: g(() => N(() => import("./chunks/icons/ChevronDown.js"), [])),
+    ChevronUp: g(() => N(() => import("./chunks/icons/ChevronUp.js"), [])),
+    ChevronRight: g(() => N(() => import("./chunks/icons/ChevronRight.js"), [])),
+    Close: g(() => N(() => import("./chunks/icons/Close.js"), [])),
+    Heart: g(() => N(() => import("./chunks/icons/Heart.js"), [])),
+    Minus: g(() => N(() => import("./chunks/icons/Minus.js"), [])),
+    Placeholder: g(() => N(() => import("./chunks/icons/Placeholder.js"), [])),
+    PlaceholderFilled: g(() => N(() => import("./chunks/icons/PlaceholderFilled.js"), [])),
+    Search: g(() => N(() => import("./chunks/icons/Search.js"), [])),
+    SearchFilled: g(() => N(() => import("./chunks/icons/SearchFilled.js"), [])),
+    Sort: g(() => N(() => import("./chunks/icons/Sort.js"), [])),
+    Star: g(() => N(() => import("./chunks/icons/Star.js"), [])),
+    View: g(() => N(() => import("./chunks/icons/View.js"), [])),
+    User: g(() => N(() => import("./chunks/icons/User.js"), [])),
+    Warning: g(() => N(() => import("./chunks/icons/Warning.js"), [])),
+    Locker: g(() => N(() => import("./chunks/icons/Locker.js"), [])),
+    Wallet: g(() => N(() => import("./chunks/icons/Wallet.js"), [])),
+    Card: g(() => N(() => import("./chunks/icons/Card.js"), [])),
+    Order: g(() => N(() => import("./chunks/icons/Order.js"), [])),
+    Delivery: g(() => N(() => import("./chunks/icons/Delivery.js"), [])),
+    OrderError: g(() => N(() => import("./chunks/icons/OrderError.js"), [])),
+    OrderSuccess: g(() => N(() => import("./chunks/icons/OrderSuccess.js"), [])),
+    PaymentError: g(() => N(() => import("./chunks/icons/PaymentError.js"), [])),
+    CheckWithCircle: g(() => N(() => import("./chunks/icons/CheckWithCircle.js"), [])),
+    WarningWithCircle: g(() => N(() => import("./chunks/icons/WarningWithCircle.js"), [])),
+    WarningFilled: g(() => N(() => import("./chunks/icons/WarningFilled.js"), [])),
+    InfoFilled: g(() => N(() => import("./chunks/icons/InfoFilled.js"), [])),
+    HeartFilled: g(() => N(() => import("./chunks/icons/HeartFilled.js"), [])),
+    Trash: g(() => N(() => import("./chunks/icons/Trash.js"), [])),
+    Eye: g(() => N(() => import("./chunks/icons/Eye.js"), [])),
+    EyeClose: g(() => N(() => import("./chunks/icons/EyeClose.js"), [])),
+    Date: g(() => N(() => import("./chunks/icons/Date.js"), [])),
+    AddressBook: g(() => N(() => import("./chunks/icons/AddressBook.js"), [])),
+    EmptyBox: g(() => N(() => import("./chunks/icons/EmptyBox.js"), [])),
+    Coupon: g(() => N(() => import("./chunks/icons/Coupon.js"), []))
+};
+
+function T({source: a, size: r = "24", stroke: n = "2", viewBox: t = "0 0 24 24", className: s, ...i}) {
+    const l = typeof a == "string" ? Be[a] : null,
+        d = {className: o(["dropin-icon", `dropin-icon--shape-stroke-${n}`, s]), width: r, height: r, viewBox: t};
+    return e(Ne, {fallback: e("svg", {...i, ...d}), children: l ? e(l, {...i, ...d}) : e(a, {...i, ...d})})
+}
+
+const Fe = ({
+                name: a,
+                value: r = "1",
+                className: n,
+                disabled: t,
+                error: s,
+                success: i,
+                min: l,
+                max: d,
+                onValue: _,
+                onUpdateError: m,
+                size: h = "medium",
+                ...p
+            }) => {
+    const [c, u] = B(Number(r)), b = Number(l), f = Number(d), v = s || c < b || c > f,
+        k = c < b ? "Dropin.Incrementer.minQuantityMessage" : c > f ? "Dropin.Incrementer.maxQuantityMessage" : "Dropin.Incrementer.errorMessage",
+        x = C(oe(async $ => {
+            if (_) try {
+                _($)
+            } catch (w) {
+                m && m(w)
+            }
+        }, 200), [_, m]), E = $ => {
+            let w = $;
+            x(w), u(w)
+        };
+    return e("div", {
+        className: o(["dropin-incrementer", `dropin-incrementer--${h}`, n]), children: [e("div", {
+            className: o(["dropin-incrementer__content", `dropin-incrementer__content--${h}`, ["dropin-incrementer__content--error", v], ["dropin-incrementer__content--success", i], ["dropin-incrementer__content--disabled", t]]),
+            children: [e("div", {
+                className: o(["dropin-incrementer__button-container", ["dropin-incrementer__button-container--disabled", t]]),
+                children: e(Q, {
+                    children: e("button", {
+                        type: "button",
+                        className: o(["dropin-incrementer__decrease-button", ["dropin-incrementer__decrease-button--disabled", t]]),
+                        onClick: () => E(c - 1),
+                        disabled: t || c < b + 1,
+                        "aria-label": e(z, {id: "Dropin.Incrementer.decreaseLabel"}),
+                        children: e(T, {
+                            source: U,
+                            size: "16",
+                            stroke: "1",
+                            viewBox: "4 2 20 20",
+                            className: "dropin-incrementer__down"
+                        })
+                    })
+                })
+            }), e("input", {
+                className: "dropin-incrementer__input",
+                max: d,
+                min: l,
+                step: 1,
+                type: "number",
+                name: a,
+                value: c,
+                disabled: t,
+                onBlur: () => {
+                    E(Number(c))
+                },
+                onChange: $ => {
+                    const w = $.currentTarget.value;
+                    w !== "" && E(Number(w))
+                }, ...p
+            }), e("div", {
+                className: o(["dropin-incrementer__button-container", ["dropin-incrementer__button-container--disabled", t]]),
+                children: e(Q, {
+                    children: e("button", {
+                        type: "button",
+                        className: o(["dropin-incrementer__increase-button", ["dropin-incrementer__increase-button--disabled", t]]),
+                        onClick: () => E(c + 1),
+                        disabled: t || c > f - 1,
+                        "aria-label": e(z, {id: "Dropin.Incrementer.increaseLabel"}),
+                        children: e(T, {
+                            source: K,
+                            size: "16",
+                            stroke: "1",
+                            viewBox: "4 2 20 20",
+                            className: "dropin-incrementer__add"
+                        })
+                    })
+                })
+            })]
+        }), v && e("p", {
+            className: "dropin-incrementer__content--error-message",
+            children: e(z, {id: k, fields: {minQuantity: l, maxQuantity: d}})
+        })]
+    })
+}, pe = ({
+             name: a,
+             value: r,
+             variant: n = "primary",
+             className: t,
+             disabled: s,
+             error: i,
+             floatingLabel: l,
+             onValue: d,
+             onUpdateError: _,
+             size: m = "medium",
+             icon: h,
+             maxLength: p,
+             success: c,
+             ...u
+         }) => {
+    const b = (u == null ? void 0 : u.id) || a || `dropin-input-${Math.random().toString(36)}`, f = C(oe(async k => {
+        if (d) try {
+            await d(k)
+        } catch (x) {
+            _ && _(x)
+        }
+    }, 200), [d, _]), v = k => {
+        const x = k.target;
+        f(x.value.trim())
+    };
+    return e("div", {
+        className: o(["dropin-input-container", `dropin-input-container--${n}`, ["dropin-input-container--floating", !!l], ["dropin-input-container--disabled", s]]),
+        children: [h && e(y, {
+            node: h,
+            className: o(["dropin-input__field-icon--left", h.props.className])
+        }), e("div", {
+            className: "dropin-input-label-container",
+            children: [e("input", {
+                id: b,
+                onChange: v,
+                type: "text",
+                maxLength: p,
+                name: a,
+                value: r, ...u,
+                className: o(["dropin-input", `dropin-input--${m}`, `dropin-input--${n}`, ["dropin-input--error", !!i], ["dropin-input--success", !!c], ["dropin-input--disabled", s], ["dropin-input--floating", !!l], ["dropin-input--icon-left", !!h], t]),
+                disabled: s
+            }), l && e("label", {
+                htmlFor: b,
+                className: o([["dropin-input__label--floating", !!l], ["dropin-input__label--floating--icon-left", !!h], ["dropin-input__label--floating--error", !!i]]),
+                children: l
+            })]
+        }), i && e("div", {
+            className: o(["dropin-input__field-icon--right", "dropin-input__field-icon--error"]),
+            children: e(T, {
+                source: Ie,
+                size: "16",
+                stroke: "2",
+                className: "dropin-input--warning-icon",
+                viewBox: "-1 -1 26 26"
+            })
+        }), c && e("div", {
+            className: o(["dropin-input__field-icon--right", "dropin-input__field-icon--success"]),
+            children: e(T, {
+                source: De,
+                size: "16",
+                stroke: "2",
+                className: "dropin-input--success-icon",
+                viewBox: "-1 -1 26 26"
+            })
+        })]
+    })
+}, ht = ({name: a = "", error: r, value: n, label: t, onChange: s, onBlur: i, ...l}) => {
+    const d = I({picker: "Dropin.InputDate.picker"}), _ = p => {
+        p.currentTarget.setAttribute("type", "date")
+    }, m = p => {
+        var u;
+        const c = (u = p.currentTarget.parentElement) == null ? void 0 : u.querySelector("input");
+        c == null || c.focus(), c == null || c.showPicker()
+    }, h = p => {
+        p.currentTarget.setAttribute("type", "text"), i == null || i(p)
+    };
+    return e("div", {
+        className: o(["dropin-input-date"]),
+        children: [e(me, {
+            error: r,
+            children: e(pe, {
+                error: !!r,
+                name: a,
+                value: n == null ? void 0 : n.toString(),
+                placeholder: t,
+                floatingLabel: t,
+                onFocus: _,
+                onBlur: h,
+                onChange: s,
+                "aria-labelledby": t,
+                className: "dropin-input-date__input", ...l
+            })
+        }), e("button", {
+            className: "dropin-input-date__icon",
+            "aria-label": d.picker,
+            onClick: m,
+            children: e(T, {source: Ee, size: "24"})
+        })]
+    })
+}, ie = {pending: e(U, {}), success: e(de, {}), error: e(j, {style: {fill: "red"}})}, He = ({
+                                                                                                minLength: a = 0,
+                                                                                                requiredCharacterClasses: r = 0,
+                                                                                                uniqueSymbolsStatus: n = "pending",
+                                                                                                validateLengthConfig: t = {
+                                                                                                    status: "",
+                                                                                                    icon: "",
+                                                                                                    message: ""
+                                                                                                }
+                                                                                            }) => {
+    const s = I({
+        chartTwoSymbols: "Dropin.PasswordStatusIndicator.chartTwoSymbols",
+        chartThreeSymbols: "Dropin.PasswordStatusIndicator.chartThreeSymbols",
+        chartFourSymbols: "Dropin.PasswordStatusIndicator.chartFourSymbols"
+    }), i = l => {
+        switch (l) {
+            case 2:
+                return s.chartTwoSymbols;
+            case 3:
+                return s.chartThreeSymbols;
+            case 4:
+                return s.chartFourSymbols;
+            default:
+                return ""
+        }
+    };
+    return e("div", {
+        className: o(["dropin-password-status-indicator"]),
+        children: [a > 0 ? e("div", {
+            className: `dropin-password-status-indicator__item dropin-password-status-indicator__item--${t.status}`,
+            "data-testid": `dropin-password-status-indicator__item--${t.icon}`,
+            children: [ie[t.icon], e("span", {className: `${t.status}`, children: t.message})]
+        }) : null, r >= 2 ? e("div", {
+            className: `dropin-password-status-indicator__item dropin-password-status-indicator__item--${n}`,
+            "data-testid": `dropin-password-status-indicator__item--${n}`,
+            children: [ie[n], e("span", {className: "pending", children: i(r)})]
+        }) : null]
+    })
+}, bt = ({
+             placeholder: a,
+             floatingLabel: r,
+             children: n,
+             name: t,
+             required: s,
+             className: i,
+             minLength: l,
+             autoComplete: d,
+             defaultValue: _ = "",
+             hideStatusIndicator: m = !1,
+             uniqueSymbolsStatus: h,
+             validateLengthConfig: p,
+             requiredCharacterClasses: c,
+             errorMessage: u,
+             onValue: b,
+             onBlur: f,
+             ...v
+         }) => {
+    const k = I({
+        placeholder: "Dropin.InputPassword.placeholder",
+        floatingLabel: "Dropin.InputPassword.floatingLabel",
+        buttonShowTitle: "Dropin.InputPassword.buttonShowTitle",
+        buttonHideTitle: "Dropin.InputPassword.buttonHideTitle"
+    }), [x, E] = B(!1), $ = C(() => {
+        E(L => !L)
+    }, []), w = x ? k.buttonHideTitle : k.buttonShowTitle;
+    return e("div", {
+        "data-testid": "passwordFieldInput",
+        className: o(["dropin-input-password", ["dropin-input-password--error", u], i]), ...v,
+        children: [e(me, {
+            error: u,
+            children: e(pe, {
+                autoComplete: d,
+                name: t ?? "password",
+                type: x ? "text" : "password",
+                placeholder: a || k.placeholder,
+                floatingLabel: r || k.floatingLabel,
+                "aria-label": k.placeholder,
+                "aria-required": s || !0,
+                "aria-invalid": !!u,
+                "aria-describedby": "password-feedback",
+                required: s || !1,
+                value: _,
+                onValue: b,
+                icon: e($e, {}),
+                onBlur: f,
+                "data-testid": "passwordInput"
+            })
+        }), e(V, {
+            "aria-label": w,
+            title: w,
+            type: "button",
+            "data-testid": "toggle-password-icon",
+            variant: "tertiary",
+            className: o(["dropin-input-password__eye-icon", `dropin-input-password__eye-icon--${x ? "show" : "hide"}`, i]),
+            onClick: $,
+            children: e(T, {focusable: !1, "aria-hidden": x, source: x ? Se : Te})
+        }), m ? null : e(He, {
+            minLength: l,
+            requiredCharacterClasses: c,
+            validateLengthConfig: p,
+            uniqueSymbolsStatus: h
+        }), n]
+    })
+}, ft = ({
+             disabled: a,
+             name: r = "",
+             errorMessage: n,
+             value: t,
+             label: s,
+             className: i,
+             onChange: l,
+             onBlur: d,
+             ..._
+         }) => {
+    const m = (_ == null ? void 0 : _.id) || r || `dropin-textarea-${Math.random().toString(36)}`,
+        h = !!(n != null && n.length), p = C(c => {
+            const u = c.target;
+            u.style.height = "auto", u.style.height = `${u.scrollHeight}px`, l == null || l(c)
+        }, [l]);
+    return e("div", {
+        className: o(["dropin-textarea-container", i]),
+        "data-testid": "dropin-textarea-container",
+        children: [e("textarea", {
+            "data-testid": "dropin-textarea-field",
+            className: o(["dropin-textarea", ["dropin-textarea--error", h], ["dropin-textarea--disabled", !!a]]),
+            id: m,
+            placeholder: s,
+            name: r,
+            value: t,
+            disabled: a,
+            onBlur: d,
+            onChange: p, ..._
+        }), e("label", {
+            htmlFor: m,
+            className: o(["dropin-textarea__label--floating", ["dropin-textarea__label--floating--error", h]]),
+            children: s
+        }), h ? e("div", {
+            className: o(["dropin-textarea__label--floating--text", ["dropin-textarea__label--floating--error", h]]),
+            children: n
+        }) : null]
+    })
+}, qe = ({className: a, src: r, params: n, loading: t = "lazy", srcSet: s, onLoad: i, ...l}) => {
+    const [d, _] = B(!1), m = q(() => {
+        if (s) return s;
+        if (!(!r || !n)) return fe(r, {...n})
+    }, [n, r, s]), h = p => {
+        _(!0), i == null || i(p)
+    };
+    return e("img", {
+        ...l,
+        className: o(["dropin-image", ["dropin-image--loaded", d], a]),
+        loading: t,
+        onLoad: h,
+        src: r,
+        srcSet: r
+    })
+}, _e = ({variant: a = "primary", className: r}) => e("hr", {
+    role: "separator",
+    className: o(["dropin-divider", `dropin-divider--${a}`, r])
+}), A = ({
+             amount: a = 0,
+             currency: r,
+             locale: n = void 0,
+             variant: t = "default",
+             weight: s = "bold",
+             className: i,
+             children: l,
+             sale: d = !1,
+             formatOptions: _ = {},
+             size: m = "small",
+             ...h
+         }) => {
+    const p = q(() => new Intl.NumberFormat(n, {
+        style: "currency",
+        currency: r || "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2, ..._
+    }), [n, r, _]), c = q(() => p.format(a), [a, p]);
+    return e("span", {
+        ...h,
+        className: o(["dropin-price", `dropin-price--${t}`, `dropin-price--${m}`, `dropin-price--${s}`, ["dropin-price--sale", d], i]),
+        children: c
+    })
+}, Me = ({
+             name: a,
+             label: r,
+             value: n,
+             size: t = "medium",
+             checked: s = !1,
+             disabled: i = !1,
+             error: l = !1,
+             description: d = "",
+             busy: _ = !1,
+             className: m,
+             children: h,
+             ...p
+         }) => e("label", {
+    className: o([m, "dropin-radio-button", ["dropin-radio-button--error", l], ["dropin-radio-button--disabled", i]]),
+    children: [e("input", {
+        name: a,
+        value: n,
+        checked: s,
+        disabled: i,
+        type: "radio",
+        className: o(["dropin-radio-button__input", ["dropin-radio-button__input--error", l], ["dropin-radio-button__input--disabled", i]]),
+        "aria-busy": _, ...p
+    }), e("span", {
+        className: o(["dropin-radio-button__label", `dropin-radio-button__label--${t}`, ["dropin-radio-button__label--error", l], ["dropin-radio-button__label--disabled", i]]),
+        children: r
+    }), e("span", {
+        className: o(["dropin-radio-button__description", `dropin-radio-button__description--${t}`, ["dropin-radio-button__description--disabled", i]]),
+        children: d
+    })]
+}), V = ({
+             value: a,
+             variant: r = "primary",
+             size: n = "medium",
+             icon: t,
+             className: s,
+             children: i,
+             disabled: l = !1,
+             active: d = !1,
+             activeChildren: _,
+             activeIcon: m,
+             href: h,
+             ...p
+         }) => {
+    let c = "dropin-button";
+    (t && !i || t && d && !_ || !t && d && m) && (c = "dropin-iconButton"), d && _ && (c = "dropin-button"), s = o([c, `${c}--${n}`, `${c}--${r}`, [`${c}--${r}--disabled`, l], i && t && `${c}--with-icon`, !i && _ && t && `${c}--with-icon`, d && m && `${c}--with-icon`, s]);
+    const u = o(["dropin-button-icon", `dropin-button-icon--${r}`, [`dropin-button-icon--${r}--disabled`, l], t == null ? void 0 : t.props.className]),
+        b = h ? {
+            node: e("a", {}), role: "link", href: h, ...p, disabled: l, active: d, onKeyDown: f => {
+                l && f.preventDefault()
+            }, tabIndex: l ? -1 : 0
+        } : {node: e("button", {}), role: "button", ...p, value: a, disabled: l, active: d};
+    return e(y, {
+        ...b,
+        className: s,
+        children: [t && !d && e(y, {node: t, className: u}), m && d && e(y, {
+            node: m,
+            className: u
+        }), i && !d && (typeof i == "string" ? e("span", {children: i}) : i), d && _ && (typeof _ == "string" ? e("span", {children: _}) : _)]
+    })
+};
+
+function ae(a, r, n, t, s) {
+    return a || (r ? r.value : n || t ? "" : s ? s.value : null)
+}
+
+const We = ({
+                name: a,
+                value: r = null,
+                options: n,
+                variant: t = "primary",
+                floatingLabel: s,
+                size: i = "medium",
+                handleSelect: l = () => {
+                },
+                disabled: d = !1,
+                error: _ = !1,
+                placeholder: m,
+                defaultOption: h,
+                icon: p,
+                className: c,
+                ...u
+            }) => {
+    const b = (u == null ? void 0 : u.id) || a || `dropin-picker-${Math.random().toString(36)}`,
+        f = !!(u != null && u.required),
+        v = n == null ? void 0 : n.find(P => !P.disabled), [k, x] = B(() => ae(r, h, m, s, v));
+    W(() => {
+        x(ae(r, h, m, s, v))
+    }, [r, h, m, s, v]);
+    const E = P => {
+        const {options: D, value: S} = P.target;
+        for (const M of D) M.selected && (x(S), l(P))
+    }, $ = n == null ? void 0 : n.map(P => {
+        const {value: D, text: S, disabled: M} = P;
+        return e("option", {
+            value: D,
+            selected: D === k,
+            disabled: M,
+            className: o(["dropin-picker__option"]),
+            children: S
+        }, D)
+    }), w = !!k, L = () => (!f || !w) && (s || m);
+    return e("div", {
+        className: o([c, "dropin-picker", `dropin-picker__${i}`, ["dropin-picker__floating", !!s], ["dropin-picker__selected", w], ["dropin-picker__error", _], ["dropin-picker__disabled", d], ["dropin-picker__icon", p]]),
+        children: [p && e(p.type, {...p.props, className: "dropin-picker__icon--placeholder"}), e("select", {
+            id: b,
+            className: o(["dropin-picker__select", `dropin-picker__select--${t}`, `dropin-picker__select--${i}`, ["dropin-picker__select--floating", !!s]]),
+            name: a,
+            "aria-label": a,
+            disabled: d,
+            onChange: E, ...u,
+            children: [L() && e("option", {
+                selected: !w,
+                value: "",
+                className: o(["dropin-picker__option dropin-picker__placeholder"]),
+                children: s ?? m
+            }, r), $]
+        }), e(T, {
+            source: J,
+            size: "24",
+            stroke: "2",
+            className: "dropin-picker__chevronDown"
+        }), s && w && e("label", {htmlFor: b, className: o(["dropin-picker__floatingLabel", !!s]), children: s})]
+    })
+}, me = ({
+             className: a,
+             label: r,
+             error: n,
+             hint: t,
+             success: s,
+             size: i = "medium",
+             disabled: l = !1,
+             children: d,
+             ..._
+         }) => {
+    var p;
+    const m = ((p = d == null ? void 0 : d.props) == null ? void 0 : p.id) ?? `dropin-field-${Math.random().toString(36)}`,
+        h = d && typeof d.type != "string" ? d.type : null;
+    return e("div", {
+        ..._,
+        className: o(["dropin-field", a]),
+        children: [r && e("label", {
+            className: o(["dropin-field__label", ["dropin-field__label--disabled", l], `dropin-field__label--${i}`]),
+            htmlFor: m,
+            children: r
+        }), e("div", {
+            className: o(["dropin-field__content"]),
+            children: h && d && we(h, {
+                ...d.props,
+                id: m,
+                key: d.key,
+                disabled: l,
+                size: i,
+                error: !!n,
+                success: !!s && !n
+            })
+        }), e("div", {
+            className: o(["dropin-field__hint", [`dropin-field__hint--${i}`, i], ["dropin-field__hint--error", !!n], ["dropin-field__hint--success", !!s && !n], ["dropin-field__hint--disabled", !!l]]),
+            children: n || s || t
+        })]
+    })
+}, vt = ({icon: a, className: r, children: n, active: t = !1, disabled: s = !1, ...i}) => e("button", {
+    role: "button",
+    disabled: s, ...i,
+    className: o(["dropin-action-button", ["dropin-action-button--active", t], ["dropin-action-button--disabled", s], r]),
+    children: [a && e(y, {
+        node: a,
+        className: o(["dropin-action-button-icon"])
+    }), n && (typeof n == "string" ? e("span", {children: n}) : n)]
+}), gt = ({
+              className: a,
+              variant: r = "primary",
+              activeOption: n,
+              disabled: t = !1,
+              dividers: s = !0,
+              children: i,
+              handleSelect: l,
+              ...d
+          }) => {
+    const [_, m] = B(n), h = C(c => {
+        t || c.props.disabled || (m(c.props.value), l && l(c.props.value))
+    }, [l, m, t]), p = se.map(i, c => {
+        const u = t || c.props.disabled, b = c.props.value === _;
+        return ke(c, {
+            disabled: u,
+            active: b,
+            onClick: () => h(c),
+            className: o(["dropin-action-button-group__option", `dropin-action-button-group__option--${r}`, ["dropin-action-button-group__option--active", b], ["dropin-action-button-group__option--with-dividers", s]])
+        })
+    });
+    return e("div", {
+        role: "group", ...d,
+        className: o(["dropin-action-button-group", `dropin-action-button-group--${r}`, a]),
+        children: p
+    })
+}, Ge = ({variant: a = "primary", className: r, children: n, ...t}) => e("div", {
+    ...t,
+    className: o(["dropin-card", `dropin-card--${a}`, r]),
+    children: e("div", {class: "dropin-card__content", children: n})
+}), Nt = ({
+              name: a,
+              value: r,
+              size: n = "medium",
+              disabled: t = !1,
+              error: s = !1,
+              label: i = "",
+              description: l = "",
+              className: d,
+              checked: _,
+              ...m
+          }) => {
+    const [h, p] = B(_ === void 0 ? !1 : _), c = le(null), u = f => {
+        var v;
+        (v = m.onChange) == null || v.call(m, f), p(f.currentTarget.checked)
+    }, b = f => {
+        var v;
+        f.key === " " && (f.preventDefault(), (v = c == null ? void 0 : c.current) == null || v.click())
+    };
+    return e("label", {
+        className: o(["dropin-checkbox", ["dropin-checkbox--disabled", t]]),
+        children: [e("input", {
+            ref: c,
+            name: a,
+            value: r,
+            type: "checkbox",
+            disabled: t,
+            className: o(["dropin-checkbox__checkbox", ["dropin-checkbox__checkbox--error", s], d]), ...m,
+            onChange: u,
+            checked: h
+        }), e("span", {
+            "aria-checked": h ? "true" : "false",
+            "aria-labelledby": `${a}-label`,
+            "aria-describedby": `${a}-description`,
+            className: o(["dropin-checkbox__box", ["dropin-checkbox__box--error", s], ["dropin-checkbox__box--disabled", t]]),
+            role: "checkbox",
+            tabIndex: t ? -1 : 0,
+            onKeyDown: b,
+            children: e(T, {className: o(["dropin-checkbox__checkmark"]), source: de, size: "16", stroke: "3"})
+        }), e("div", {
+            id: `${a}-label`,
+            className: o(["dropin-checkbox__label", `dropin-checkbox__label--${n}`, ["dropin-checkbox__label--disabled", t]]),
+            children: i
+        }), e("div", {}), e("div", {
+            id: `${a}-description`,
+            role: "note",
+            className: o(["dropin-checkbox__description", `dropin-checkbox__description--${n}`, ["dropin-checkbox__description--disabled", t]]),
+            children: l
+        })]
+    })
+}, wt = ({
+             className: a,
+             name: r,
+             value: n,
+             id: t,
+             label: s,
+             groupAriaLabel: i,
+             size: l = "medium",
+             color: d,
+             disabled: _ = !1,
+             selected: m = !1,
+             outOfStock: h = !1,
+             multi: p = !1,
+             onValue: c,
+             onUpdateError: u,
+             ...b
+         }) => {
+    const f = I("Dropin.Swatches.outOfStock.label").label, v = I("Dropin.Swatches.selected.label").label,
+        k = I("Dropin.Swatches.swatch.label").label, x = C(async D => {
+            if (c) try {
+                await c(D)
+            } catch (S) {
+                u && u(S)
+            }
+        }, [c, u]), E = D => {
+            const S = D.target;
+            x(S.value)
+        }, L = d && (D => {
+            const S = new Option().style;
+            return S.color = D, S.color !== ""
+        })(d) ? d : "var(--color-gray-300);", P = () => h ? `${i}: ${s} ${f}` : m ? `${i}: ${s} ${v}` : `${i}: ${s} ${k}`;
+    return e("label", {
+        className: o(["dropin-color-swatch__container", `dropin-color-swatch__container--${l}`, a]),
+        children: [e("input", {
+            type: p ? "checkbox" : "radio",
+            name: r,
+            id: t,
+            value: n,
+            "aria-label": P(),
+            checked: m,
+            disabled: _,
+            onChange: E, ...b,
+            className: o(["dropin-color-swatch", ["dropin-color-swatch--selected", m], ["dropin-color-swatch--disabled", _], a])
+        }), e("span", {
+            style: {"--bg-color": L},
+            className: o(["dropin-color-swatch__span", ["dropin-color-swatch__span--out-of-stock", h], a])
+        })]
+    })
+}, kt = ({
+             className: a,
+             name: r,
+             value: n,
+             label: t,
+             groupAriaLabel: s,
+             id: i,
+             disabled: l = !1,
+             selected: d = !1,
+             outOfStock: _ = !1,
+             multi: m = !1,
+             onValue: h,
+             onUpdateError: p,
+             ...c
+         }) => {
+    const u = I("Dropin.Swatches.outOfStock.label").label, b = I("Dropin.Swatches.selected.label").label,
+        f = I("Dropin.Swatches.swatch.label").label, [v, k] = B(!1), x = le(null), E = C(async L => {
+            if (h) try {
+                await h(L)
+            } catch (P) {
+                p && p(P)
+            }
+        }, [h, p]), $ = L => {
+            const P = L.target;
+            E(P.value)
+        }, w = () => _ ? `${s}: ${t} ${u}` : d ? `${s}: ${t} ${b}` : `${s}: ${t} ${f}`;
+    return W(() => {
+        x.current && x.current.scrollWidth > x.current.clientWidth && k(!0)
+    }, [t]), e("div", {
+        className: "dropin-text-swatch__container", ...v ? {"data-tooltip": t} : {},
+        children: [e("input", {
+            type: m ? "checkbox" : "radio",
+            name: r,
+            id: i,
+            value: n,
+            "aria-label": w(),
+            checked: d,
+            disabled: l,
+            onChange: $, ...c,
+            className: o(["dropin-text-swatch", ["dropin-text-swatch--selected", d], ["dropin-text-swatch--disabled", l], a])
+        }), e("label", {
+            htmlFor: i,
+            ref: x,
+            className: o(["dropin-text-swatch__label", ["dropin-text-swatch__label--out-of-stock", _], a]),
+            children: t
+        })]
+    })
+}, Ke = ({ariaLabel: a, size: r = "small", stroke: n = "4", children: t, className: s, style: i, ...l}) => {
+    const d = ["dropin-progress-spinner", `dropin-progress-spinner--shape-size-${r}`, `dropin-progress-spinner--shape-stroke-${n}`],
+        _ = I({
+            updating: "Dropin.ProgressSpinner.updating.label",
+            updatingChildren: "Dropin.ProgressSpinner.updatingChildren.label"
+        }), m = () => a || (t ? _.updatingChildren : _.updating);
+    return t ? e("div", {
+        ...l,
+        className: o(["dropin-progress-spinner-provider"]),
+        "aria-live": "polite",
+        role: "status",
+        children: [e("div", {"aria-hidden": !0, children: t}), e("div", {
+            "aria-label": m(),
+            role: "status",
+            className: o(["dropin-progress-spinner-background", s]),
+            style: i
+        }), e("div", {className: o(["dropin-progress-spinner-with-provider", ...d]), "aria-hidden": !0})]
+    }) : e("div", {...l, className: o([s, ...d]), "aria-live": "polite", role: "status", "aria-label": m()})
+}, yt = ({
+             className: a,
+             name: r,
+             value: n,
+             id: t,
+             label: s,
+             groupAriaLabel: i,
+             src: l,
+             alt: d,
+             disabled: _ = !1,
+             selected: m = !1,
+             outOfStock: h = !1,
+             multi: p = !1,
+             onValue: c,
+             onUpdateError: u,
+             ...b
+         }) => {
+    const f = I("Dropin.Swatches.outOfStock.label").label, v = I("Dropin.Swatches.selected.label").label,
+        k = I("Dropin.Swatches.swatch.label").label, x = C(async w => {
+            if (c) try {
+                await c(w)
+            } catch (L) {
+                u && u(L)
+            }
+        }, [c, u]), E = w => {
+            const L = w.target;
+            x(L.value)
+        }, $ = () => h ? `${i}: ${s} ${f}` : m ? `${i}: ${s} ${v}` : `${i}: ${s} ${k}`;
+    return e("label", {
+        className: o(["dropin-image-swatch__container", a]),
+        children: [e("input", {
+            type: p ? "checkbox" : "radio",
+            name: r,
+            id: t,
+            value: n,
+            "aria-label": $(),
+            checked: m,
+            disabled: _,
+            onChange: E, ...b,
+            className: o(["dropin-image-swatch", ["dropin-image-swatch--selected", m], ["dropin-image-swatch--disabled", _], a])
+        }), e("span", {
+            className: o(["dropin-image-swatch__span", ["dropin-image-swatch__span--out-of-stock", h], a]),
+            children: e(qe, {
+                src: l,
+                className: o(["dropin-image-swatch__content"]),
+                params: {width: 100, fit: "bounds", crop: !0},
+                alt: d,
+                loading: "lazy",
+                onError: w => w.target.style.display = "none"
+            })
+        })]
+    })
+}, Ue = ({
+             className: a,
+             children: r,
+             title: n,
+             secondaryText: t,
+             actionIconPosition: s = "left",
+             iconOpen: i = K,
+             iconClose: l = U,
+             iconLeft: d = K,
+             showIconLeft: _ = !1,
+             renderContentWhenClosed: m = !0,
+             defaultOpen: h = !1,
+             onStateChange: p,
+             ...c
+         }) => {
+    const [u, b] = B(h), f = $ => {
+            $.stopImmediatePropagation();
+            const w = !u;
+            b(w), p == null || p(w)
+        }, v = I(`Dropin.Accordion.${u ? "close" : "open"}.label`).label,
+        k = e(T, {source: i, size: "24", onClick: f, onKeyPress: f, className: "dropin-accordion-section__open-icon"}),
+        x = e(T, {source: l, size: "24", onClick: f, onKeyPress: f, className: "dropin-accordion-section__close-icon"}),
+        E = e(T, {source: d, size: "24"});
+    return e("div", {
+        ...c,
+        className: o(["dropin-accordion-section", a]),
+        children: [e("div", {
+            className: "dropin-accordion-section__heading",
+            children: [e("div", {
+                className: "dropin-accordion-section__flex",
+                onClick: f,
+                onKeyPress: f,
+                role: "button",
+                "aria-label": `${v} ${n}`,
+                tabIndex: 0,
+                children: e("div", {
+                    className: "dropin-accordion-section__title-container",
+                    children: [s === "left" && (u ? x : k), _ && E, e("h3", {
+                        className: "dropin-accordion-section__title",
+                        children: n
+                    })]
+                })
+            }), e("div", {
+                className: "dropin-accordion-section__secondary-text-container",
+                children: [t && e("h4", {
+                    className: "dropin-accordion-section__secondary-text",
+                    children: t
+                }), s === "right" && (u ? x : k)]
+            })]
+        }), e("div", {
+            className: "dropin-accordion-section__content-container",
+            style: {display: u ? "grid" : "none"},
+            children: (u || m && !u) && r
+        })]
+    })
+}, xt = ({className: a, children: r, actionIconPosition: n = "left", iconOpen: t = K, iconClose: s = U, ...i}) => {
+    const l = e(_e, {variant: "secondary"}),
+        d = _ => e(R, {children: [e(Ue, {..._.props, actionIconPosition: n, iconOpen: t, iconClose: s}), l]});
+    return e("div", {
+        ...i,
+        className: o(["dropin-accordion", a]),
+        children: [l, ...(Array.isArray(r) ? r : [r]).map(d)]
+    })
+}, Dt = ({
+             variant: a = "primary",
+             className: r,
+             type: n = "warning",
+             additionalActions: t,
+             onDismiss: s,
+             heading: i,
+             description: l,
+             icon: d,
+             itemList: _,
+             actionButtonPosition: m,
+             ...h
+         }) => {
+    var c, u, b;
+    const p = I({dismiss: "Dropin.InlineAlert.dismissLabel"});
+    return e("div", {
+        ...h,
+        className: o(["dropin-in-line-alert", `dropin-in-line-alert--${n}`, `dropin-in-line-alert--${a}`, r]),
+        children: [e("div", {
+            className: "dropin-in-line-alert__heading",
+            children: [e("div", {
+                className: "dropin-in-line-alert__title-container",
+                children: [d && e(y, {
+                    node: d,
+                    className: "dropin-in-line-alert__icon"
+                }), e("span", {className: "dropin-in-line-alert__title", children: i})]
+            }), e("div", {
+                className: "dropin-in-line-alert__actions-container",
+                children: [t && (m === "top" || !m && t.length <= 1) && e(V, {
+                    variant: "tertiary",
+                    className: "dropin-in-line-alert__additional-action",
+                    onClick: t.length > 0 ? (c = t[0]) == null ? void 0 : c.onClick : void 0,
+                    "aria-label": (u = t[0]) == null ? void 0 : u.label,
+                    children: (b = t[0]) == null ? void 0 : b.label
+                }), s && e(V, {
+                    icon: e(T, {source: j, size: "24", stroke: "2"}),
+                    className: "dropin-in-line-alert__dismiss-button",
+                    variant: "tertiary",
+                    onClick: s,
+                    "aria-label": p.dismiss
+                })]
+            })]
+        }), l && e("p", {
+            className: "dropin-in-line-alert__description",
+            children: l
+        }), e("div", {
+            className: "dropin-in-line-alert__item-list-container",
+            children: _ && e(y, {node: _, className: o(["dropin-in-line-alert__item-list"])})
+        }), t && (m === "bottom" || !m && t.length > 1) && e("div", {
+            className: "dropin-in-line-alert__additional-actions-container",
+            children: t.map(f => e(V, {
+                variant: "tertiary",
+                className: "dropin-in-line-alert__additional-action",
+                onClick: f.onClick,
+                children: f.label
+            }, f.label))
+        })]
+    })
+}, It = ({
+             size: a = "small",
+             title: r = null,
+             centered: n = !1,
+             backgroundDim: t = !0,
+             clickToDismiss: s = !0,
+             escapeToDismiss: i = !0,
+             onClose: l,
+             showCloseButton: d = !0,
+             className: _,
+             children: m = null,
+             ...h
+         }) => {
+    const p = C(() => {
+        l == null || l()
+    }, [l]), c = I({modalCloseLabel: "Dropin.Modal.Close.label"});
+    return W(() => {
+        const u = b => {
+            const f = document.querySelector(".dropin-modal"), v = document.querySelector(".dropin-modal__body");
+            s && f && v && !v.contains(b.target) && p()
+        };
+        return document.addEventListener("mousedown", u), () => {
+            document.removeEventListener("mousedown", u)
+        }
+    }, [p, s]), W(() => {
+        const u = b => {
+            b.key === "Escape" && i && p()
+        };
+        return document.addEventListener("keydown", u), () => {
+            document.removeEventListener("keydown", u)
+        }
+    }, [p, i]), W(() => {
+        const u = document.scrollingElement, b = u.style.overflow;
+        return u.style.overflow = "hidden", () => {
+            u.style.overflow = b
+        }
+    }, []), e("div", {
+        className: o(["dropin-modal", ["dropin-modal--dim", t]]),
+        children: e("div", {
+            ...h,
+            className: o(["dropin-modal__body", [`dropin-modal__body--${a}`, a], _]),
+            children: [e("div", {
+                className: o(["dropin-modal__header", ["dropin-modal__header-title", !!r]]),
+                children: [r && e("div", {
+                    className: o(["dropin-modal__header-title-content"]),
+                    children: r
+                }), d && e(V, {
+                    "aria-label": c.modalCloseLabel,
+                    variant: "tertiary",
+                    className: "dropin-modal__header-close-button",
+                    onClick: p,
+                    icon: e(j, {})
+                })]
+            }), e("div", {className: o(["dropin-modal__content", ["dropin-modal__body--centered", n]]), children: m})]
+        })
+    })
+}, Et = ({
+             className: a,
+             children: r,
+             ariaLabel: n,
+             image: t,
+             title: s,
+             price: i,
+             taxIncluded: l = !1,
+             taxExcluded: d = !1,
+             total: _,
+             totalExcludingTax: m,
+             sku: h,
+             configurations: p,
+             warning: c,
+             alert: u,
+             discount: b,
+             savings: f,
+             quantity: v,
+             description: k,
+             attributes: x,
+             footer: E,
+             loading: $ = !1,
+             updating: w = !1,
+             quantityType: L,
+             dropdownOptions: P,
+             onQuantity: D,
+             onRemove: S,
+             ...M
+         }) => {
+    var X, Y;
+    const {locale: G} = ye(ce), O = I({
+        each: "Dropin.CartItem.each.label",
+        pricePerItem: "Dropin.CartItem.pricePerItem.label",
+        quantity: "Dropin.CartItem.quantity.label",
+        remove: "Dropin.CartItem.remove.label",
+        removeDefault: "Dropin.CartItem.removeDefault.label",
+        taxIncluded: "Dropin.CartItem.taxIncluded.label",
+        taxExcluded: "Dropin.CartItem.taxExcluded.label",
+        updating: "Dropin.CartItem.updating.label",
+        updatingDefault: "Dropin.ProgressSpinner.updating.label"
+    });
+    if ($) return e(je, {});
+    const ue = L === "dropdown" ? e(We, {
+        className: o(["dropin-cart-item__quantity__picker"]),
+        value: String(v),
+        name: "quantity",
+        "aria-label": O.quantity,
+        disabled: w,
+        variant: "primary",
+        options: P,
+        handleSelect: F => D == null ? void 0 : D(Number(F.target.value))
+    }) : e(Fe, {
+        className: o(["dropin-cart-item__quantity__incrementer"]),
+        value: v,
+        min: 1,
+        onValue: F => D == null ? void 0 : D(Number(F)),
+        name: "quantity",
+        "aria-label": O.quantity,
+        disabled: w
+    });
+    return e("div", {
+        ...M,
+        className: o(["dropin-cart-item", ["dropin-cart-item--updating", w], a]),
+        children: [w && e(Ke, {
+            className: o(["dropin-cart-item__spinner"]),
+            ariaLabel: n ? (X = O.updating) == null ? void 0 : X.replace("{product}", n) : O.updatingDefault
+        }), e("div", {
+            className: "dropin-cart-item__wrapper",
+            children: [t && e(y, {node: t, className: o(["dropin-cart-item__image"])}), s && e(y, {
+                node: s,
+                className: o(["dropin-cart-item__title", ["dropin-cart-item__title--edit", !!D || !!S]])
+            }), k && e(y, {node: k, className: o(["dropin-cart-item__description"])}), h && e(y, {
+                node: h,
+                className: o(["dropin-cart-item__sku"])
+            }), e("div", {
+                className: o(["dropin-cart-item__savings__wrapper"]),
+                children: [b && e(y, {
+                    node: b,
+                    className: o(["dropin-cart-item__discount", "dropin-cart-item__discount__large-screen"])
+                }), f && e(y, {
+                    node: f,
+                    className: o(["dropin-cart-item__savings", "dropin-cart-item__savings__large-screen"])
+                })]
+            }), x && e("div", {
+                className: o(["dropin-cart-item__attributes"]),
+                children: e(y, {node: x})
+            }), p && e("ul", {
+                className: o(["dropin-cart-item__configurations"]),
+                children: Object.entries(p).map(([F, he]) => e("li", {
+                    className: o(["dropin-cart-item__configurations__item"]),
+                    children: [F, ":", " ", e("strong", {
+                        className: o(["dropin-cart-item__configurations__item__value"]),
+                        children: he
+                    })]
+                }, F))
+            }), i && e("span", {
+                className: o(["dropin-cart-item__price"]),
+                "aria-label": O.pricePerItem,
+                children: [v && !D && e(R, {
+                    children: [e("span", {
+                        className: "dropin-cart-item__price__quantity",
+                        "aria-hidden": !0,
+                        children: [v.toLocaleString(G), " x", " "]
+                    }), e("div", {
+                        className: "dropin-cart-item__sr-only",
+                        children: [O.quantity, ": ", v == null ? void 0 : v.toLocaleString(G), ";"]
+                    })]
+                }), e(y, {
+                    node: i,
+                    role: "text"
+                }), v && v > 1 && e(R, {children: [" ", O.each]}), l && e("span", {
+                    "data-testid": "tax-message",
+                    className: "dropin-cart-item__price-tax-message",
+                    children: [" ", O.taxIncluded]
+                }), d && e("span", {
+                    "data-testid": "tax-message",
+                    className: "dropin-cart-item__price-tax-message",
+                    children: [" ", O.taxExcluded]
+                })]
+            }), e("div", {
+                className: o(["dropin-cart-item__quantity", ["dropin-cart-item__quantity--edit", !!D]]),
+                children: [D ? ue : v && e("span", {
+                    className: o(["dropin-cart-item__quantity__value"]),
+                    children: [O.quantity, ":", " ", e("strong", {
+                        className: "dropin-cart-item__quantity__number",
+                        children: Number(v).toLocaleString(G)
+                    })]
+                }), c && e(y, {
+                    node: c,
+                    className: o(["dropin-cart-item__warning", "dropin-cart-item__warning--quantity"])
+                }), u && e(y, {
+                    node: u,
+                    className: o(["dropin-cart-item__alert", "dropin-cart-item__alert--quantity"])
+                })]
+            }), c && e(y, {node: c, className: o(["dropin-cart-item__warning"])}), u && e(y, {
+                node: u,
+                className: o(["dropin-cart-item__alert"])
+            }), e("div", {
+                className: o(["dropin-cart-item__total", ["dropin-cart-item__total--edit", !!S]]),
+                children: [e("div", {
+                    className: "dropin-cart-item__row-total__wrapper",
+                    children: [_ && e("div", {
+                        className: "dropin-cart-item__row-total",
+                        children: e(y, {node: _, role: "text"})
+                    }), l && e("div", {
+                        className: "dropin-cart-item__total-tax-included",
+                        children: e("span", {
+                            "data-testid": "tax-message",
+                            className: o(["dropin-cart-item__total-tax-message"]),
+                            children: O.taxIncluded
+                        })
+                    })]
+                }), d && e("div", {
+                    className: "dropin-cart-item__total-tax-excluded",
+                    children: e("span", {
+                        "data-testid": "tax-message",
+                        className: o(["dropin-cart-item__total-tax-excluded-message"]),
+                        children: [m && e(y, {node: m, role: "text"}), " ", O.taxExcluded]
+                    })
+                }), b && e(y, {node: b, className: o(["dropin-cart-item__discount"])}), f && e(y, {
+                    node: f,
+                    className: o(["dropin-cart-item__savings"])
+                })]
+            }), E && e("div", {className: o(["dropin-cart-item__footer"]), children: e(y, {node: E})})]
+        }), S && e(V, {
+            "data-testid": "cart-item-remove-button",
+            className: o(["dropin-cart-item__remove"]),
+            variant: "tertiary",
+            onClick: () => S == null ? void 0 : S(),
+            icon: e(T, {
+                "data-testid": "cart-item-remove-icon",
+                source: Le,
+                size: "24",
+                stroke: "2",
+                viewBox: "0 0 24 24",
+                "aria-label": n ? (Y = O.remove) == null ? void 0 : Y.replace("{product}", n) : O.removeDefault
+            }),
+            disabled: w
+        })]
+    })
+}, je = () => e("div", {
+    className: "dropin-cart-item dropin-cart-item-skeleton",
+    children: e(Ce, {
+        className: "dropin-cart-item__skeleton dropin-cart-item__wrapper",
+        children: [e("div", {
+            className: "dropin-cart-item__image",
+            children: e(H, {className: "dropin-cart-item__skeleton__item"})
+        }), e("div", {
+            className: "dropin-cart-item__title",
+            children: e(H, {className: "dropin-cart-item__skeleton__item"})
+        }), e("div", {
+            className: "dropin-cart-item__sku",
+            children: e(H, {className: "dropin-cart-item__skeleton__item"})
+        }), e("div", {
+            className: "dropin-cart-item__price",
+            children: e(H, {className: "dropin-cart-item__skeleton__item"})
+        }), e("div", {
+            className: "dropin-cart-item__quantity",
+            children: e(H, {className: "dropin-cart-item__skeleton__item"})
+        }), e("div", {
+            className: "dropin-cart-item__total",
+            children: e(H, {className: "dropin-cart-item__skeleton__item"})
+        })]
+    })
+}), $t = ({className: a, children: r, ...n}) => e("div", {
+    ...n,
+    className: o(["dropin-cart-list", a]),
+    children: e("div", {
+        className: "dropin-cart-list__wrapper",
+        "aria-live": "assertive",
+        "aria-relevant": "all",
+        children: se.map(r, (t, s) => e("div", {className: "dropin-cart-list__item", children: t}, s))
+    })
+}), St = ({
+              className: a,
+              children: r,
+              locale: n,
+              currency: t,
+              amount: s,
+              variant: i = "default",
+              minimumAmount: l,
+              maximumAmount: d,
+              size: _ = "small",
+              display: m = "dash",
+              specialPrice: h,
+              sale: p = !1,
+              ...c
+          }) => {
+    const u = q(() => s || l === d || l && !d || d && !l, [s, d, l]);
+    return e("div", {
+        children: u ? e("div", {
+            ...c,
+            className: o(["dropin-price-range", a]),
+            children: e(A, {amount: s ?? l ?? d, currency: t, locale: n, size: _, variant: i, sale: p})
+        }) : e("div", {
+            ...c,
+            className: o(["dropin-price-range", a]),
+            children: [m === "dash" ? e(ze, {
+                specialPrice: h,
+                minimumAmount: l,
+                maximumAmount: d,
+                currency: t,
+                locale: n,
+                size: _,
+                sale: p
+            }) : null, m === "from to" ? e(Ze, {
+                specialPrice: h,
+                minimumAmount: l,
+                maximumAmount: d,
+                currency: t,
+                locale: n,
+                size: _,
+                sale: p
+            }) : null, m === "as low as" ? e(Je, {
+                specialPrice: h,
+                minimumAmount: l,
+                maximumAmount: d,
+                currency: t,
+                locale: n,
+                size: _,
+                sale: p
+            }) : null]
+        })
+    })
+};
+
+function ze({specialPrice: a, minimumAmount: r, maximumAmount: n, currency: t, locale: s, size: i, sale: l}) {
+    return e(R, {
+        children: [e(A, {
+            amount: a ?? r,
+            currency: t,
+            locale: s,
+            size: i,
+            sale: !!a && l
+        }), e("span", {className: "dropin-price-range__separator", children: "-"}), e(A, {
+            amount: n,
+            currency: t,
+            locale: s,
+            size: i
+        })]
+    })
+}
+
+function Ze({specialPrice: a, minimumAmount: r, maximumAmount: n, currency: t, locale: s, size: i, sale: l}) {
+    const d = I({
+        from: "Dropin.PriceRange.from.label",
+        to: "Dropin.PriceRange.to.label",
+        asLowAs: "Dropin.PriceRange.asLowAs.label"
+    });
+    return e(R, {
+        children: [e("span", {
+            className: o(["dropin-price-range__from", `dropin-price-range__from--${i}`]),
+            children: d.from
+        }), e(A, {
+            amount: a ?? r,
+            currency: t,
+            locale: s,
+            size: i,
+            sale: !!a && l
+        }), e("span", {
+            className: o(["dropin-price-range__to", `dropin-price-range__to--${i}`]),
+            children: d.to
+        }), e(A, {amount: n, currency: t, locale: s, size: i})]
+    })
+}
+
+function Je({specialPrice: a, minimumAmount: r, maximumAmount: n, currency: t, locale: s, size: i, sale: l}) {
+    const d = I({
+        from: "Dropin.PriceRange.from.label",
+        to: "Dropin.PriceRange.to.label",
+        asLowAs: "Dropin.PriceRange.asLowAs.label"
+    });
+    return e(R, {
+        children: [e("span", {
+            className: o(["dropin-price-range__as-low-as", `dropin-price-range__as-low-as--${i}`]),
+            children: d.asLowAs
+        }), a ? e("div", {
+            children: [e(A, {
+                amount: n,
+                currency: t,
+                locale: s,
+                size: i,
+                variant: "strikethrough"
+            }), e(A, {
+                amount: a,
+                currency: t,
+                locale: s,
+                size: i,
+                className: "dropin-price-range__special",
+                sale: !!a && l
+            })]
+        }) : e(A, {amount: r, currency: t, locale: s, size: i})]
+    })
+}
+
+const Tt = ({
+                className: a,
+                categories: r,
+                separator: n,
+                ...t
+            }) => e(R, {
+    children: (r == null ? void 0 : r.length) > 1 && e("nav", {
+        role: "navigation", ...t,
+        className: o(["dropin-breadcrumbs__container", a]),
+        children: e("ul", {
+            className: "dropin-breadcrumbs__items",
+            children: r == null ? void 0 : r.map((s, i) => e("li", {
+                className: o(["dropin-breadcrumbs__item", ["dropin-breadcrumbs__item--last", i === r.length - 1]]),
+                children: [e(y, {
+                    node: s,
+                    className: "dropin-breadcrumbs__link"
+                }), !n && i !== r.length - 1 && e("span", {
+                    className: "dropin-breadcrumbs__separator--default",
+                    children: [" ", "/", " "]
+                }), n && i !== r.length - 1 && e(y, {node: n, className: "dropin-breadcrumbs__separator--icon"})]
+            }, i))
+        })
+    })
+}), Lt = ({className: a, variant: r, icon: n, message: t, onDismiss: s, action: i, ...l}) => {
+    const d = I({dismiss: "Dropin.InlineAlert.dismissLabel"});
+    return e("div", {
+        ...l,
+        className: o([a, "dropin-alert-banner", `dropin-alert-banner--${r}`]),
+        children: [e("div", {
+            className: "dropin-alert-banner__content",
+            children: [n && e(y, {
+                node: n,
+                "aria-hidden": "true",
+                className: "dropin-alert-banner__icon"
+            }), e(y, {node: t, className: o(["dropin-alert-banner__message"])})]
+        }), e("div", {
+            className: "dropin-alert-banner__actions",
+            children: [i && e(V, {
+                variant: "tertiary",
+                className: "dropin-alert-banner__action",
+                onClick: i.onClick,
+                "aria-label": i.label,
+                children: i.label
+            }), e(V, {
+                icon: e(T, {source: j, size: "24", stroke: "2"}),
+                className: "dropin-alert-banner__dismiss-button",
+                variant: "primary",
+                onClick: s,
+                "aria-label": d.dismiss
+            })]
+        })]
+    })
+}, Pt = ({
+             className: a,
+             icon: r,
+             heading: n,
+             headingLevel: t = 2,
+             message: s,
+             action: i,
+             variant: l = "secondary",
+             ...d
+         }) => {
+    const _ = t >= 1 && t <= 6 ? `h${t}` : "h2";
+    return e("div", {
+        ...d,
+        className: o(["dropin-illustrated-message", a]),
+        children: e(Ge, {
+            variant: l,
+            children: [r && e(y, {
+                node: r,
+                "aria-hidden": "true",
+                size: "80",
+                className: "dropin-illustrated-message__icon"
+            }), n && e(_, {className: "dropin-illustrated-message__heading", children: n}), s && e(y, {
+                node: s,
+                className: "dropin-illustrated-message__message"
+            }), i && e(y, {node: i, className: "dropin-illustrated-message__action"})]
+        })
+    })
+}, Ot = ({
+             className: a,
+             label: r,
+             name: n,
+             value: t,
+             selected: s = !0,
+             onChange: i,
+             icon: l,
+             busy: d = !1,
+             children: _,
+             ...m
+         }) => e("div", {
+    ...m,
+    className: o(["dropin-toggle-button", a, ["dropin-toggle-button__selected", s]]),
+    children: e("label", {
+        className: "dropin-toggle-button__actionButton",
+        children: [e(Me, {
+            label: "",
+            name: n,
+            value: t,
+            checked: s,
+            onChange: () => i && i(t),
+            "aria-label": r,
+            busy: d,
+            className: o([a, "dropin-toggle-button__radioButton"])
+        }), e("span", {
+            className: "dropin-toggle-button__content",
+            children: [l && e(l.type, {...l == null ? void 0 : l.props, className: "dropin-toggle-button__icon"}), r]
+        })]
+    })
+}), Ct = ({title: a = null, size: r = "medium", cta: n, divider: t = !0, className: s, ...i}) => a ? e("div", {
+    ...i,
+    className: o(["dropin-header-container", s]),
+    "data-testid": "dropin-header-container",
+    children: [e("span", {
+        className: o(["dropin-header-container__title", ["dropin-header-container__title--medium", r === "medium"], ["dropin-header-container__title--large", r === "large"]]),
+        children: a
+    }), n ? e(y, {
+        node: n,
+        className: "dropin-header-container__actions"
+    }) : null, t ? e(_e, {className: o(["dropin-header-container__divider", ["dropin-header-container__divider--medium", r === "medium"], ["dropin-header-container__divider--large", r === "large"]])}) : null]
+}) : null, At = ({label: a, className: r, ...n}) => a ? e("div", {
+    ...n,
+    className: o(["dropin-tag-container", r]),
+    "data-testid": "dropin-tag-container",
+    children: e("span", {className: "dropin-tag-container__label", children: a})
+}) : null, Vt = ({className: a, children: r, maxColumns: n, emptyGridContent: t, ...s}) => {
+    const i = !!r && (Array.isArray(r) ? r.length > 0 : !0),
+        l = i ? {gridTemplateColumns: `repeat(${n}, 1fr)`} : void 0;
+    return e("div", {
+        ...s,
+        className: o(["dropin-content-grid", a]),
+        tabindex: 0,
+        children: e("div", {
+            "data-testid": "content-grid-content",
+            className: o(["dropin-content-grid__content", ["dropin-content-grid__dynamic-columns-content", !n], ["dropin-content-grid__content--empty", !i]]),
+            style: l,
+            children: i ? r : t
+        })
+    })
+}, Rt = ({totalPages: a = 10, currentPage: r = 1, onChange: n, className: t, ...s}) => {
+    const i = I({
+        backwardButton: "Dropin.Pagination.backwardButton.ariaLabel",
+        forwardButton: "Dropin.Pagination.forwardButton.ariaLabel"
+    }), l = C(() => {
+        const p = Math.min(r + 1, a);
+        n == null || n(p)
+    }, [r, n, a]), d = C(() => {
+        const p = Math.max(r - 1, 1);
+        n == null || n(p)
+    }, [r, n]), _ = C(p => {
+        ve(p) && (n == null || n(p))
+    }, [n]), m = C((p, c) => {
+        let u = [];
+        const b = (f, v) => {
+            for (let k = f; k <= v; k++) u.push({page: k, isActive: k === p, label: k})
+        };
+        return c <= 5 ? b(1, c) : p <= 2 ? (b(1, 2), u.push({
+            page: "ellipsis",
+            isActive: !1,
+            label: "..."
+        }), b(c - 1, c)) : p >= c - 3 ? b(c - 4, c) : (b(p - 1, p), u.push({
+            page: "ellipsis",
+            isActive: !1,
+            label: "..."
+        }), b(c - 1, c)), u
+    }, []), h = q(() => m(r, a), [m, r, a]);
+    return e("div", {
+        ...s,
+        className: o(["dropin-pagination", t]),
+        children: [e("button", {
+            type: "button",
+            "data-testid": "prev-button",
+            "aria-label": i.backwardButton,
+            disabled: r === 1,
+            onClick: d,
+            className: o(["dropin-pagination-arrow", "dropin-pagination-arrow--backward"]),
+            children: e(T, {size: "24", source: J})
+        }), e("ul", {
+            className: "dropin-pagination_list",
+            children: h.map((p, c) => e("li", {
+                "data-testid": `dropin-pagination_list-item--${p.page}`,
+                className: o(["dropin-pagination_list-item", `dropin-pagination_list-item--${p.page}`, ["dropin-pagination_list-item--active", p.isActive]]),
+                children: e("button", {
+                    type: "button",
+                    "data-testid": `set-page-button-${p.page}`,
+                    onClick: () => _(p.page),
+                    children: p.label
+                })
+            }, `${p.page}_${c}`))
+        }), e("button", {
+            type: "button",
+            "data-testid": "next-button",
+            "aria-label": i.forwardButton,
+            disabled: r === a,
+            onClick: l,
+            className: o(["dropin-pagination-arrow", "dropin-pagination-arrow--forward"]),
+            children: e(T, {size: "24", source: J})
+        })]
+    })
+};
+export {
+    xt as Accordion,
+    Ue as AccordionSection,
+    vt as ActionButton,
+    gt as ActionButtonGroup,
+    Lt as AlertBanner,
+    Tt as Breadcrumbs,
+    V as Button,
+    Ge as Card,
+    Et as CartItem,
+    je as CartItemSkeleton,
+    $t as CartList,
+    Nt as Checkbox,
+    wt as ColorSwatch,
+    Vt as ContentGrid,
+    _e as Divider,
+    me as Field,
+    Ct as Header,
+    T as Icon,
+    Pt as IllustratedMessage,
+    qe as Image,
+    yt as ImageSwatch,
+    Dt as InLineAlert,
+    Fe as Incrementer,
+    pe as Input,
+    ht as InputDate,
+    bt as InputPassword,
+    It as Modal,
+    Rt as Pagination,
+    We as Picker,
+    A as Price,
+    St as PriceRange,
+    Ke as ProgressSpinner,
+    Me as RadioButton,
+    Ce as Skeleton,
+    H as SkeletonRow,
+    At as Tag,
+    ft as TextArea,
+    kt as TextSwatch,
+    Ot as ToggleButton,
+    ce as UIContext,
+    Ae as UIProvider,
+    ut as provider
+};

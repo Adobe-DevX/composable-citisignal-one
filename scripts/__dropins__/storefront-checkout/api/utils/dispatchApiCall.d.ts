@@ -1,25 +1,18 @@
-import { FetchOptions } from '@adobe/fetch-graphql';
+import { FetchOptions } from '..';
+import { QueueNames } from './enqueueRequest';
 
 declare const signalTypes: {
     cart: import('@preact/signals-core').Signal<{
         pending: boolean;
         data?: import('../../data/models/cart').Cart | null | undefined;
     }>;
-    regions: import('@preact/signals-core').Signal<{
-        addressType?: import('../../data/models/address-form-fields').AddressFormType | undefined;
-        country?: string | undefined;
-        selectedRegion?: string | undefined;
-        selectedRegionId?: string | undefined;
+    customer: import('@preact/signals-core').Signal<{
         pending: boolean;
-        data?: import('../../data/models/region').Region[] | undefined;
+        data?: import('../../data/models/customer').Customer | null | undefined;
     }>;
     estimateShippingMethods: import('@preact/signals-core').Signal<{
         pending: boolean;
         data?: import('../../data/models/shipping-method').ShippingMethod[] | undefined;
-    }>;
-    customer: import('@preact/signals-core').Signal<{
-        pending: boolean;
-        data?: import('../../data/models/customer').Customer | null | undefined;
     }>;
 };
 type SignalTypesType = typeof signalTypes;
@@ -28,12 +21,14 @@ type SignalDataMap = {
     [K in SignalTypesKeys]: SignalTypesType[K]['value']['data'];
 };
 type DispatchApiCallParams<T extends SignalTypesKeys> = {
-    type: 'query' | 'mutation';
-    query: string;
+    defaultValueOnFail?: SignalDataMap[T];
     options?: FetchOptions;
     path: string;
+    query: string;
+    queueName?: QueueNames;
     signalType: T;
     transformer?: (data: any) => SignalDataMap[T];
+    type: 'query' | 'mutation';
 };
 export declare function getValueAtPath(obj: any, path: string): any;
 declare function dispatchApiCall<T extends SignalTypesKeys>(params: DispatchApiCallParams<T>): Promise<SignalDataMap[T]>;

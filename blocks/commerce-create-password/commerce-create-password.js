@@ -14,7 +14,7 @@ export default function decorate(block) {
     window.location.href = '/customer/account';
   } else {
     authRenderer.render(UpdatePassword, {
-      routeWrongUrlRedirect: () => '/customer/login',
+      routeWrongUrlRedirect: () => '/us/en/customer/login',
       successNotificationForm: (userName) => h(SuccessNotification, {
         formSize: 'default',
         headingText: `Welcome ${userName}!`,

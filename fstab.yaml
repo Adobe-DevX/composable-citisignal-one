@@ -1,7 +1,7 @@
 # The default is for AEM UE. Make sure to change the URL to your AEM instance and GitHub repository.
 mountpoints:
    /:
-     url: "https://author-p148568-e1512243.adobeaemcloud.com/bin/franklin.delivery/Adobe-DevX/composable-citisignal-one/main"
+     url: "https://author-p148568-e1559417.adobeaemcloud.com/bin/franklin.delivery/Adobe-DevX/composable-citisignal-one/main"
      type: "markup"
      suffix: ".html"
 

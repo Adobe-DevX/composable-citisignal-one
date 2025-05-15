@@ -1,23 +1,19 @@
-import { Item } from '.';
-import { Cart as GeneratedCart } from '../transforms/transform-cart';
-import { PaymentMethod } from './payment-method';
-import { ShippingAddress, BillingAddress } from './address';
+import { Address, PaymentMethod, ShippingMethod } from '.';
 
-type Coupon = {
-    code: string;
-};
-export type Cart = {
+export interface ShippingAddress extends Address {
+    availableShippingMethods?: ShippingMethod[];
+    selectedShippingMethod?: ShippingMethod;
+    sameAsBilling?: boolean;
+}
+export interface Cart {
     availablePaymentMethods?: PaymentMethod[];
-    billingAddress?: BillingAddress;
-    coupons: Coupon[];
+    billingAddress?: Address;
     email?: string;
     id: string;
-    items: Item[];
-    prices?: GeneratedCart['prices'];
+    isEmpty: boolean;
+    isGuest: boolean;
+    isVirtual: boolean;
     selectedPaymentMethod?: PaymentMethod;
     shippingAddresses?: ShippingAddress[];
-    totalQty: number;
-    virtual: boolean;
-};
-export {};
+}
 //# sourceMappingURL=cart.d.ts.map

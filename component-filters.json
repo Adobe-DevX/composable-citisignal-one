@@ -25,6 +25,7 @@
       "icon-block",
       "content-fragment-offer",
       "social-media",
+      "commerce-login",
       "product-list-page",
       "enrichment",
       "product-details",
@@ -33,6 +34,13 @@
       "commerce-cart",
       "commerce-checkout",
       "commerce-order-confirmation",
+      "commerce-account-sidebar",
+      "commerce-account-header",
+      "commerce-orders-list",
+      "commerce-addresses",
+      "commerce-customer-information",
+      "commerce-returns-list",
+      "commerce-create-account",
       "columnsjo"
     ]
   },
