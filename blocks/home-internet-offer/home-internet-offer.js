@@ -12,6 +12,7 @@ export default function decorate(block) {
           <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" required>
           <button type="submit" class="check-availability">Check availability</button>
         </form>
+        <div class="api-response" style="margin-top:1rem;color:#7c2bc0;"></div>
         <div class="business-link">
           Looking for Internet for business? <a href="#">Learn more</a>
         </div>
@@ -20,8 +21,35 @@ export default function decorate(block) {
         </div>
       </div>
       <div class="home-internet-offer-right">
-        <img src="/path/to/your/image.jpg" alt="Smiling family using internet" />
+        <img src="https://publish-p148568-e1559417.adobeaemcloud.com/content/dam/citisignal/citisignal/banner.png" alt="Smiling family using internet" />
       </div>
     </div>
   `;
-} 
+
+
+  const form = block.querySelector('.availability-form');
+  const responseDiv = block.querySelector('.api-response');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const pincode = form.pincode.value.trim();
+    responseDiv.textContent = 'Checking...';
+
+    try {
+      const res = await fetch(`https://285361-450sapphirebeaver-stage.adobeioruntime.net/api/v1/web/MobilePlans/generic?pincode=${encodeURIComponent(pincode)}`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'x-gw-ims-org-id': '8EBB33FE5E43BA110A495EF8@AdobeOrg'
+        },
+        body: '{}'
+      });
+
+      const data = await res.json();
+      responseDiv.textContent = JSON.stringify(data, null, 2);
+    } catch (err) {
+      responseDiv.textContent = 'Error: ' + err.message;
+    }
+  });
+
+}
