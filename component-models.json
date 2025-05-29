@@ -1424,5 +1424,31 @@
         "value": "This block displays the Home Internet Offer UI."
       }
     ]
+  },
+  {
+    "id": "register-for-eligibility",
+    "name": "Register for Eligibility",
+    "fields": {
+      "heading": {
+        "type": "string",
+        "title": "Heading"
+      },
+      "description": {
+        "type": "string",
+        "title": "Description"
+      },
+      "subDescription": {
+        "type": "string",
+        "title": "Sub Description"
+      },
+      "liteDescription": {
+        "type": "string",
+        "title": "Lite Description"
+      },
+      "image": {
+        "type": "string",
+        "title": "Image"
+      }
+    }
   }
 ]
