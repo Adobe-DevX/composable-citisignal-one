@@ -1,5 +1,3 @@
-import './home-internet-offer.css';
-
 export default function decorate(block) {
   block.innerHTML = `
     <div class="home-internet-offer-container">
