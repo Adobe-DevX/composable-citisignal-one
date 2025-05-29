@@ -1428,27 +1428,38 @@
   {
     "id": "register-for-eligibility",
     "name": "Register for Eligibility",
-    "fields": {
-      "heading": {
-        "valueType": "string",
-        "title": "Heading"
+    "fields": [
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Heading",
+        "valueType": "string"
       },
-      "description": {
-        "valueType": "string",
-        "title": "Description"
+      {
+        "component": "text",
+        "name": "description",
+        "label": "Description",
+        "valueType": "string"
       },
-      "subDescription": {
-        "valueType": "string",
-        "title": "Sub Description"
+      {
+        "component": "text",
+        "name": "subDescription",
+        "label": "Sub Description",
+        "valueType": "string"
       },
-      "liteDescription": {
-        "valueType": "string",
-        "title": "Lite Description"
+      {
+        "component": "text",
+        "name": "liteDescription",
+        "label": "Lite Description",
+        "valueType": "string"
       },
-      "image": {
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
         "valueType": "string",
-        "title": "Image"
+        "multi": false
       }
-    }
+    ]
   }
 ]
