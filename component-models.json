@@ -1430,23 +1430,23 @@
     "name": "Register for Eligibility",
     "fields": {
       "heading": {
-        "type": "string",
+        "valueType": "string",
         "title": "Heading"
       },
       "description": {
-        "type": "string",
+        "valueType": "string",
         "title": "Description"
       },
       "subDescription": {
-        "type": "string",
+        "valueType": "string",
         "title": "Sub Description"
       },
       "liteDescription": {
-        "type": "string",
+        "valueType": "string",
         "title": "Lite Description"
       },
       "image": {
-        "type": "string",
+        "valueType": "string",
         "title": "Image"
       }
     }
