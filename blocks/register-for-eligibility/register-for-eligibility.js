@@ -1,4 +1,3 @@
-import { createTag } from '../../scripts/utils.js';
 
 export default function decorate(block) {
   // Clear the element and inject the block structure
