@@ -2,86 +2,78 @@ import {
   h, Component, Fragment, render,
 } from '../../scripts/preact.js';
 import htm from '../../scripts/htm.js';
-import { readBlockConfig } from '../../scripts/aem.js';
+import { readBlockConfig } from '../../scripts/lib-franklin.js';
 import { performCatalogServiceQuery } from '../../scripts/commerce.js';
 
 const html = htm.bind(h);
 
-const productPlansQuery = `query ProductPlansQuery($categoryId: String!) {
-  productSearch(
-    phrase: "",
-    filter: { attribute: "categoryIds", eq: $categoryId },
-    current_page: 1,
-    page_size: 12
-  ) {
-    items {
-      productView {
+const productPlansQuery = `
+  query getProducts($categoryId: String!) {
+    products(filter: { category_id: { eq: $categoryId } }) {
+      items {
         sku
         name
-        description
-        images(roles: "thumbnail") {
-          url
+        description {
+          html
         }
-        ... on SimpleProductView {
-          price {
-            regular {
-              amount {
-                value
-                currency
-              }
-            }
-            final {
-              amount {
-                value
-                currency
-              }
+        image {
+          url
+          label
+        }
+        price_range {
+          minimum_price {
+            regular_price {
+              value
+              currency
             }
           }
         }
       }
     }
   }
-}`;
+`;
 
-class ProductPlans extends Component {
-  constructor(props) {
-    super(props);
+class ProductPlans {
+  constructor(categoryId) {
     this.state = {
       products: [],
-      loading: true,
+      loading: true
     };
+    this.categoryId = categoryId;
   }
 
   async componentDidMount() {
     try {
-      const { categoryId } = this.props;
-      const response = await performCatalogServiceQuery(productPlansQuery, { categoryId });
-      this.setState({
-        products: response.productSearch.items,
-        loading: false,
+      const response = await performCatalogServiceQuery(productPlansQuery, {
+        categoryId: this.categoryId
       });
+      
+      if (response?.data?.products?.items) {
+        this.setState({ products: response.data.products.items, loading: false });
+      }
     } catch (error) {
-      console.error('Error fetching product plans:', error);
+      console.error('Error fetching products:', error);
       this.setState({ loading: false });
     }
   }
 
-  renderProductCard(product) {
-    const { productView } = product;
-    const price = productView.price?.final?.amount?.value || productView.price?.regular?.amount?.value;
-    const currency = productView.price?.final?.amount?.currency || productView.price?.regular?.amount?.currency;
+  setState(newState) {
+    this.state = { ...this.state, ...newState };
+    this.render();
+  }
 
-    return html`
+  renderProductCard(product) {
+    const { sku, name, description, image, price_range } = product;
+    const price = price_range?.minimum_price?.regular_price?.value;
+    const currency = price_range?.minimum_price?.regular_price?.currency;
+
+    return `
       <div class="product-card">
-        <div class="product-image">
-          <img src="${productView.images[0]?.url}" alt="${productView.name}" loading="lazy" />
-        </div>
+        ${image ? `<img class="product-image" src="${image.url}" alt="${image.label || name}" />` : ''}
         <div class="product-content">
-          <h3 class="product-name">${productView.name}</h3>
-          <p class="product-description">${productView.description || ''}</p>
-          <div class="product-price">
-            ${price ? html`<span class="price">${currency} ${price}</span>` : ''}
-          </div>
+          <h3 class="product-name">${name}</h3>
+          ${description?.html ? `<div class="product-description">${description.html}</div>` : ''}
+          ${price ? `<div class="product-price">${currency} ${price}</div>` : ''}
         </div>
       </div>
     `;
@@ -89,35 +81,31 @@ class ProductPlans extends Component {
 
   render() {
     const { products, loading } = this.state;
+    const container = document.querySelector('.product-plans');
+    
+    if (!container) return;
 
     if (loading) {
-      return html`
-        <div class="product-plans loading">
-          ${Array(3).fill().map(() => html`
-            <div class="product-card shimmer">
-              <div class="product-image shimmer"></div>
-              <div class="product-content">
-                <div class="product-name shimmer"></div>
-                <div class="product-description shimmer"></div>
-                <div class="product-price shimmer"></div>
-              </div>
-            </div>
-          `)}
+      container.classList.add('loading');
+      container.innerHTML = Array(3).fill(`
+        <div class="product-card">
+          <div class="shimmer"></div>
         </div>
-      `;
+      `).join('');
+      return;
     }
 
-    return html`
-      <div class="product-plans">
-        ${products.map((product) => this.renderProductCard(product))}
-      </div>
-    `;
+    container.classList.remove('loading');
+    container.innerHTML = products.map(product => this.renderProductCard(product)).join('');
   }
 }
 
-export default async function decorate(block) {
+export default function decorate(block) {
   const config = readBlockConfig(block);
-  const { categoryId } = config;
+  
+  // Get categoryId from URL query parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryId = urlParams.get('categoryId') || config.categoryId;
 
   if (!categoryId) {
     console.error('Category ID is required for product plans block');
@@ -125,6 +113,8 @@ export default async function decorate(block) {
   }
 
   block.textContent = '';
-  const app = html`<${ProductPlans} categoryId=${categoryId} />`;
-  render(app, block);
+  block.classList.add('product-plans');
+  
+  const productPlans = new ProductPlans(categoryId);
+  productPlans.componentDidMount();
 } 

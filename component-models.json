@@ -1461,5 +1461,18 @@
         "multi": false
       }
     ]
+  },
+  {
+    "id": "product-plans",
+    "fields": [
+      {
+        "component": "text",
+        "name": "categoryId",
+        "label": "Category ID",
+        "valueType": "string",
+        "required": false,
+        "description": "The category ID to fetch products from. If not provided, it will be taken from the URL query parameter 'categoryId'"
+      }
+    ]
   }
 ]
