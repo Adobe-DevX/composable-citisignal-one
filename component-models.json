@@ -1470,32 +1470,28 @@
         "name": "heading",
         "label": "Heading",
         "valueType": "string",
-        "value": "5G Home Internet is not available at your address just yet.",
-        "class": "register-eligibility-heading"
+        "value": "5G Home Internet is not available at your address just yet."
       },
       {
         "component": "text",
         "name": "description",
         "label": "Description",
         "valueType": "string",
-        "value": "But we may have options that work for you!",
-        "class": "register-eligibility-description"
+        "value": "But we may have options that work for you!"
       },
       {
         "component": "text",
         "name": "subDescription",
         "label": "Sub Description",
         "valueType": "string",
-        "value": "Enter your contact info below to join our waitlist for 5G Home Internet and you may impact where we expand our availability next. Once 5G Home Internet service becomes available at your address, we'll contact you by phone or at the email address provided.",
-        "class": "register-eligibility-sub-description"
+        "value": "Enter your contact info below to join our waitlist for 5G Home Internet and you may impact where we expand our availability next. Once 5G Home Internet service becomes available at your address, we'll contact you by phone or at the email address provided."
       },
       {
         "component": "text",
         "name": "liteDescription",
         "label": "Lite Description",
         "valueType": "string",
-        "value": "Internet Lite may be available to you. To find out about eligibility, please call 833-969-0185.",
-        "class": "register-eligibility-lite-description"
+        "value": "Internet Lite may be available to you. To find out about eligibility, please call 833-969-0185."
       },
       {
         "component": "reference",
@@ -1503,7 +1499,6 @@
         "label": "Image",
         "valueType": "string",
         "value": "/content/dam/citisignal/father-daughter-laptop.png",
-        "classes": "register-eligibility-image",
         "multi": false
       }
     ]
