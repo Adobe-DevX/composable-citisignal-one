@@ -1,9 +1,9 @@
 /* Container and Layout */
 .home-internet-offer-container {
   display: flex;
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
+  gap: 4rem;
+  padding: 4rem 2rem;
+  max-width: 1400px;
   margin: 0 auto;
   background: transparent;
   box-shadow: none;
@@ -14,17 +14,28 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  max-width: 600px;
 }
 
 .home-internet-offer-right {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-internet-offer-right img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.home-internet-offer-right img:hover {
+  transform: scale(1.02);
 }
 
 /* Headings and Text */
@@ -35,6 +46,7 @@
   margin-bottom: 2rem;
   color: #000;
   font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .offer-details {
@@ -42,21 +54,28 @@
   line-height: 1.5;
   margin: 0;
   color: #333;
+  letter-spacing: -0.01em;
 }
 
 .not-available {
   font-size: 1.5rem;
   color: #666;
   margin: 0;
+  font-weight: 500;
 }
 
 .full-terms {
   font-size: 1.5rem;
   color: #7c2bc0;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: inline-block;
+  margin-top: 0.5rem;
 }
 
 .full-terms:hover {
+  color: #5a1e8a;
   text-decoration: underline;
 }
 
@@ -64,52 +83,83 @@
 .availability-form {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin: 1rem 0;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .availability-form label {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #333;
+  margin-bottom: 0.5rem;
 }
 
 .availability-form input {
-  padding: 1rem;
+  padding: 1.25rem;
   font-size: 1.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: white;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.availability-form input:focus {
+  outline: none;
+  border-color: #7c2bc0;
+  box-shadow: 0 0 0 3px rgba(124, 43, 192, 0.1);
 }
 
 .check-availability {
-  padding: 1rem 2rem;
+  padding: 1.25rem 2rem;
   font-size: 1.5rem;
   background-color: #7c2bc0;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  margin-top: 1rem;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .check-availability:hover {
   background-color: #6a24a8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 43, 192, 0.2);
+}
+
+.check-availability:active {
+  transform: translateY(0);
 }
 
 .business-link,
 .puerto-rico-link {
   font-size: 1.5rem;
   color: #333;
+  margin-top: 1rem;
 }
 
 .business-link a,
 .puerto-rico-link a {
   color: #7c2bc0;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .business-link a:hover,
 .puerto-rico-link a:hover {
+  color: #5a1e8a;
   text-decoration: underline;
 }
 
@@ -119,21 +169,42 @@
   white-space: pre-wrap;
 }
 
-@media (max-width: 768px) {
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
   .home-internet-offer-container {
-    flex-direction: column;
-    padding: 1rem;
-    background: transparent;
-    box-shadow: none;
-    border: none;
+    gap: 3rem;
+    padding: 3rem 2rem;
   }
 
   .home-internet-offer-left h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .offer-details {
     font-size: 1.5rem;
+  }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+  .home-internet-offer-container {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .home-internet-offer-left {
+    max-width: 100%;
+  }
+
+  .home-internet-offer-left h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .offer-details {
+    font-size: 1.25rem;
+    line-height: 1.4;
   }
 
   .not-available,
@@ -143,6 +214,65 @@
   .check-availability,
   .business-link,
   .puerto-rico-link {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+  }
+
+  .availability-form {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .availability-form input {
+    padding: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .check-availability {
+    padding: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .home-internet-offer-right img {
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Small Mobile Breakpoint */
+@media (max-width: 480px) {
+  .home-internet-offer-container {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .home-internet-offer-left h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .offer-details {
+    font-size: 1.125rem;
+  }
+
+  .not-available,
+  .full-terms,
+  .availability-form label,
+  .availability-form input,
+  .check-availability,
+  .business-link,
+  .puerto-rico-link {
+    font-size: 1rem;
+  }
+
+  .availability-form {
+    padding: 1.25rem;
+  }
+
+  .availability-form input {
+    padding: 0.875rem;
+  }
+
+  .check-availability {
+    padding: 0.875rem;
   }
 } 

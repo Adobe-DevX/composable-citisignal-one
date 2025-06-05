@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   font-family: var(--body-font-family);
+  background: #f8f9fa;
 }
 
 .register-for-eligibility .container {
@@ -10,10 +11,16 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .register-for-eligibility .form-section {
-  padding: 2rem;
+  padding: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .register-for-eligibility .form-section form {
@@ -22,7 +29,7 @@
 
 .register-for-eligibility .input-row {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -33,54 +40,74 @@
 
 .register-for-eligibility .input-group {
   margin-bottom: 1.5rem;
+  max-width: 500px;
 }
 
 .register-for-eligibility label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   font-weight: 500;
+  color: #000;
+  font-size: 1.5rem;
 }
 
 .register-for-eligibility input[type="text"],
 .register-for-eligibility input[type="email"],
 .register-for-eligibility input[type="tel"] {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1.5rem;
   background: #fff;
   box-sizing: border-box;
+  transition: all 0.2s ease;
+  color: #000;
+  max-width: 500px;
 }
 
 .register-for-eligibility input:focus {
   outline: none;
-  border-color: var(--link-color, #e20074);
-  box-shadow: 0 0 0 2px rgba(226, 0, 116, 0.15);
+  border-color: var(--color-brand-700);
+  box-shadow: 0 0 0 3px rgba(226, 0, 116, 0.1);
+}
+
+.register-for-eligibility input::placeholder {
+  color: #666;
+  font-size: 1.5rem;
 }
 
 .register-for-eligibility button[type="submit"] {
   width: 100%;
-  background-color: #444;
+  max-width: 500px;
+  background-color: var(--color-brand-700);
   color: #fff;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   border: none;
-  border-radius: 4px;
-  font-size: 1.1rem;
-  font-weight: 500;
+  border-radius: 8px;
+  font-size: 1.75rem;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 0.5rem;
-  transition: background 0.2s;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .register-for-eligibility button[type="submit"]:hover {
-  background-color: #222;
+  background-color: var(--color-brand-800);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(226, 0, 116, 0.2);
+}
+
+.register-for-eligibility button[type="submit"]:active {
+  background-color: var(--color-brand-900);
+  transform: translateY(0);
 }
 
 .register-for-eligibility .form-section {
   background: #fff;
-  border-radius: 8px 0 0 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-radius: 12px 0 0 12px;
 }
 
 .register-for-eligibility .image-section {
@@ -89,57 +116,79 @@
   justify-content: flex-end;
   height: 100%;
   padding: 0 0 2rem 0;
+  background: #f8f9fa;
 }
 
 .register-for-eligibility .image-section img {
   max-width: 100%;
-  border-radius: 0 0 8px 0;
+  border-radius: 0 0 12px 0;
   object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .register-for-eligibility h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--heading-color);
+  font-size: 3rem;
+  margin-bottom: 1.25rem;
+  color: #000;
+  line-height: 1.2;
+  font-weight: 700;
+  max-width: 500px;
 }
 
 .register-for-eligibility p {
   margin-bottom: 1.5rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: #000;
+  font-size: 1.5rem;
+  max-width: 500px;
 }
 
 .register-for-eligibility .success-message,
 .register-for-eligibility .error-message {
-  padding: 1rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  max-width: 500px;
 }
 
 .register-for-eligibility .success-message {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #dcfce7;
 }
 
 .register-for-eligibility .error-message {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fee2e2;
 }
 
 @media (max-width: 900px) {
   .register-for-eligibility .container {
     grid-template-columns: 1fr;
   }
+  
   .register-for-eligibility .form-section {
-    border-radius: 8px 8px 0 0;
+    padding: 2rem;
+    border-radius: 12px 12px 0 0;
   }
+  
   .register-for-eligibility .image-section img {
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 12px 12px;
+  }
+  
+  .register-for-eligibility h1 {
+    font-size: 2.75rem;
   }
 }
 
 @media (max-width: 768px) {
+  .register-for-eligibility {
+    padding: 1rem;
+  }
+  
   .register-for-eligibility .container {
     grid-template-columns: 1fr;
   }
@@ -148,7 +197,36 @@
     order: -1;
   }
   
+  .register-for-eligibility .form-section {
+    padding: 1.5rem;
+  }
+  
   .register-for-eligibility h1 {
+    font-size: 2.5rem;
+  }
+  
+  .register-for-eligibility .input-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .register-for-eligibility input[type="text"],
+  .register-for-eligibility input[type="email"],
+  .register-for-eligibility input[type="tel"] {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .register-for-eligibility label {
+    font-size: 1.5rem;
+  }
+  
+  .register-for-eligibility button[type="submit"] {
+    font-size: 1.5rem;
+    padding: 1.25rem 0;
+  }
+  
+  .register-for-eligibility p {
     font-size: 1.5rem;
   }
 } 

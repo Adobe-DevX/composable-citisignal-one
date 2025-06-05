@@ -6,15 +6,9 @@ export default function decorate(block) {
   // Create the form HTML as a string
   const formHTML = `
     <form class="register-eligibility-form">
-      <div class="input-row">
-        <div class="input-group">
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
-        </div>
-        <div class="input-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" required autocomplete="family-name">
-        </div>
+      <div class="input-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required autocomplete="name">
       </div>
       <div class="input-group">
         <label for="contactNumber">Preferred Contact Number</label>
