@@ -2,7 +2,7 @@ import {
   h, Component, Fragment, render,
 } from '../../scripts/preact.js';
 import htm from '../../scripts/htm.js';
-import { readBlockConfig } from '../../scripts/lib-franklin.js';
+import { readBlockConfig } from '../../scripts/aem.js';
 import { performCatalogServiceQuery } from '../../scripts/commerce.js';
 
 const html = htm.bind(h);
