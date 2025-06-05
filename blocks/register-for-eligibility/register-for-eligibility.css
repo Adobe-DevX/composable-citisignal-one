@@ -17,14 +17,10 @@
   overflow: hidden;
 }
 
-.register-for-eligibility .form-section {
+.register-for-eligibility .register-eligibility-form {
   padding: 3rem;
   max-width: 600px;
   margin: 0 auto;
-}
-
-.register-for-eligibility .form-section form {
-  margin-top: 2rem;
 }
 
 .register-for-eligibility .input-row {
@@ -105,25 +101,11 @@
   transform: translateY(0);
 }
 
-.register-for-eligibility .form-section {
-  background: #fff;
-  border-radius: 12px 0 0 12px;
-}
-
-.register-for-eligibility .image-section {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  height: 100%;
-  padding: 0 0 2rem 0;
-  background: #f8f9fa;
-}
-
-.register-for-eligibility .image-section img {
-  max-width: 100%;
-  border-radius: 0 0 12px 0;
+.register-for-eligibility img {
+  width: 50%;
+  height: auto;
   object-fit: cover;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 .register-for-eligibility h1 {
@@ -170,13 +152,8 @@
     grid-template-columns: 1fr;
   }
   
-  .register-for-eligibility .form-section {
+  .register-for-eligibility .register-eligibility-form {
     padding: 2rem;
-    border-radius: 12px 12px 0 0;
-  }
-  
-  .register-for-eligibility .image-section img {
-    border-radius: 0 0 12px 12px;
   }
   
   .register-for-eligibility h1 {
@@ -193,11 +170,7 @@
     grid-template-columns: 1fr;
   }
   
-  .register-for-eligibility .image-section {
-    order: -1;
-  }
-  
-  .register-for-eligibility .form-section {
+  .register-for-eligibility .register-eligibility-form {
     padding: 1.5rem;
   }
   
