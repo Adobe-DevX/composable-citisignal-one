@@ -1418,10 +1418,55 @@
     "fields": [
       {
         "component": "text",
-        "name": "note",
-        "label": "Note",
         "valueType": "string",
-        "value": "This block displays the Home Internet Offer UI."
+        "name": "heading",
+        "value": "Join America's fastest growing home internet provider!",
+        "label": "Heading"
+      },
+      {
+        "component": "multitext",
+        "valueType": "array",
+        "name": "offer_details",
+        "value": [
+          "For a limited time, get $200 back via Virtual Prepaid Mastercard® when you switch to T-Mobile Home Internet online or via chat. Allow 10 weeks.",
+          "T-Mobile customers who add 5G home internet can pay as little as $40/month with AutoPay and a Go5G Next, Go5G Plus, or Magenta® MAX voice line. Enter your address to see if you qualify."
+        ],
+        "label": "Offer Details"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "not_available",
+        "value": "Not available in all areas.",
+        "label": "Not Available Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "full_terms_link",
+        "value": "#",
+        "label": "Full Terms Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "business_link",
+        "value": "#",
+        "label": "Business Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "puerto_rico_link",
+        "value": "#",
+        "label": "Puerto Rico Link"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "value": "https://publish-p148568-e1559417.adobeaemcloud.com/content/dam/citisignal/citisignal/banner.png",
+        "label": "Image"
       }
     ]
   },
