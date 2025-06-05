@@ -54,8 +54,13 @@ class ProductPlans {
                     productData?.thumbnail?.url || 
                     productView?.images?.[0]?.url;
 
+    // Get the product URL from the data or construct it using SKU, without .html extension
+    const productUrl = productData?.url_key 
+      ? `/${productData.url_key}`
+      : `/products/${productData.sku}`;
+
     return `
-      <div class="product-card">
+      <a href="${productUrl}" class="product-card" data-product-sku="${productData.sku}">
         <div class="product-image-container">
           ${imageUrl ? `<img class="product-image" src="${imageUrl}" alt="${productData.name}" loading="lazy" />` : ''}
         </div>
@@ -64,7 +69,7 @@ class ProductPlans {
           ${productData.description?.html ? `<div class="product-description">${productData.description.html}</div>` : ''}
           ${price ? `<div class="product-price">${currency} ${price}</div>` : ''}
         </div>
-      </div>
+      </a>
     `;
   }
 

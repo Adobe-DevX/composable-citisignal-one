@@ -15,11 +15,25 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .product-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card:focus {
+  outline: 2px solid #2c5282;
+  outline-offset: 2px;
+}
+
+.product-card:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .product-image-container {
