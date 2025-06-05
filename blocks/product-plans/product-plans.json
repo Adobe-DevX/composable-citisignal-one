@@ -1,0 +1,14 @@
+{
+  "name": "Product Plans",
+  "description": "Displays product plans in a 3-column grid",
+  "type": "block",
+  "js": "/blocks/product-plans/product-plans.js",
+  "css": "/blocks/product-plans/product-plans.css",
+  "config": {
+    "categoryId": {
+      "type": "string",
+      "description": "Category ID to fetch products from",
+      "required": true
+    }
+  }
+} 
