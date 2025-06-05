@@ -1467,11 +1467,11 @@
     "fields": [
       {
         "component": "text",
-        "name": "categoryId",
-        "label": "Category ID",
+        "name": "skus",
+        "label": "Product SKUs",
         "valueType": "string",
         "required": false,
-        "description": "The category ID to fetch products from. If not provided, it will be taken from the URL query parameter 'categoryId'"
+        "description": "Comma-separated list of product SKUs to display. If not provided, SKUs will be taken from the URL query parameter 'skus'"
       }
     ]
   }

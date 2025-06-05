@@ -3,54 +3,32 @@ import {
 } from '../../scripts/preact.js';
 import htm from '../../scripts/htm.js';
 import { readBlockConfig } from '../../scripts/aem.js';
-import { performCatalogServiceQuery } from '../../scripts/commerce.js';
+import { getProduct } from '../../scripts/commerce.js';
 
 const html = htm.bind(h);
 
-const productPlansQuery = `
-  query getProducts($categoryId: String!) {
-    products(filter: { category_id: { eq: $categoryId } }) {
-      items {
-        sku
-        name
-        description {
-          html
-        }
-        image {
-          url
-          label
-        }
-        price_range {
-          minimum_price {
-            regular_price {
-              value
-              currency
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 class ProductPlans {
-  constructor(categoryId) {
+  constructor(skus) {
     this.state = {
       products: [],
       loading: true
     };
-    this.categoryId = categoryId;
+    this.skus = skus;
   }
 
   async componentDidMount() {
     try {
-      const response = await performCatalogServiceQuery(productPlansQuery, {
-        categoryId: this.categoryId
-      });
+      const productPromises = this.skus.map(sku => getProduct(sku));
+      const responses = await Promise.all(productPromises);
       
-      if (response?.data?.products?.items) {
-        this.setState({ products: response.data.products.items, loading: false });
-      }
+      const products = responses
+        .filter(response => response)
+        .map(product => ({
+          product,
+          productView: product
+        }));
+
+      this.setState({ products, loading: false });
     } catch (error) {
       console.error('Error fetching products:', error);
       this.setState({ loading: false });
@@ -63,16 +41,27 @@ class ProductPlans {
   }
 
   renderProductCard(product) {
-    const { sku, name, description, image, price_range } = product;
-    const price = price_range?.minimum_price?.regular_price?.value;
-    const currency = price_range?.minimum_price?.regular_price?.currency;
+    const { product: productData, productView } = product;
+    const price = productView?.price?.final?.amount?.value || 
+                 productView?.price?.regular?.amount?.value || 
+                 productData?.price_range?.minimum_price?.final_price?.value;
+    const currency = productView?.price?.final?.amount?.currency || 
+                    productView?.price?.regular?.amount?.currency || 
+                    productData?.price_range?.minimum_price?.final_price?.currency;
+
+    const imageUrl = productData?.image?.url || 
+                    productData?.small_image?.url || 
+                    productData?.thumbnail?.url || 
+                    productView?.images?.[0]?.url;
 
     return `
       <div class="product-card">
-        ${image ? `<img class="product-image" src="${image.url}" alt="${image.label || name}" />` : ''}
+        <div class="product-image-container">
+          ${imageUrl ? `<img class="product-image" src="${imageUrl}" alt="${productData.name}" loading="lazy" />` : ''}
+        </div>
         <div class="product-content">
-          <h3 class="product-name">${name}</h3>
-          ${description?.html ? `<div class="product-description">${description.html}</div>` : ''}
+          <h3 class="product-name">${productData.name}</h3>
+          ${productData.description?.html ? `<div class="product-description">${productData.description.html}</div>` : ''}
           ${price ? `<div class="product-price">${currency} ${price}</div>` : ''}
         </div>
       </div>
@@ -103,18 +92,19 @@ class ProductPlans {
 export default function decorate(block) {
   const config = readBlockConfig(block);
   
-  // Get categoryId from URL query parameters
+  // Get SKUs from URL query parameters or block config
   const urlParams = new URLSearchParams(window.location.search);
-  const categoryId = urlParams.get('categoryId') || config.categoryId;
+  const skusParam = urlParams.get('skus');
+  const skus = skusParam ? skusParam.split(',') : config.skus;
 
-  if (!categoryId) {
-    console.error('Category ID is required for product plans block');
+  if (!skus || !skus.length) {
+    console.error('Product SKUs are required for product plans block');
     return;
   }
 
   block.textContent = '';
   block.classList.add('product-plans');
   
-  const productPlans = new ProductPlans(categoryId);
+  const productPlans = new ProductPlans(skus);
   productPlans.componentDidMount();
 } 
