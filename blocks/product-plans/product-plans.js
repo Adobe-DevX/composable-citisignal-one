@@ -42,32 +42,56 @@ class ProductPlans {
 
   renderProductCard(product) {
     const { product: productData, productView } = product;
+    
+    // Price handling
     const price = productView?.price?.final?.amount?.value || 
                  productView?.price?.regular?.amount?.value || 
                  productData?.price_range?.minimum_price?.final_price?.value;
     const currency = productView?.price?.final?.amount?.currency || 
                     productView?.price?.regular?.amount?.currency || 
                     productData?.price_range?.minimum_price?.final_price?.currency;
+    
+    // Regular price for comparison if available
+    const regularPrice = productView?.price?.regular?.amount?.value || 
+                        productData?.price_range?.minimum_price?.regular_price?.value;
+    const hasDiscount = regularPrice && price < regularPrice;
 
+    // Image handling
     const imageUrl = productData?.image?.url || 
                     productData?.small_image?.url || 
                     productData?.thumbnail?.url || 
                     productView?.images?.[0]?.url;
 
-    // Get the product URL from the data or construct it using SKU, without .html extension
+    // URL construction
     const productUrl = productData?.url_key 
       ? `/${productData.url_key}`
       : `/products/${productData.sku}`;
+
+    // Additional product details
+    const shortDescription = productData?.short_description?.html || '';
+    const stockStatus = productData?.stock_status || productView?.stock_status;
+    const isInStock = stockStatus === 'IN_STOCK';
+    const specialPrice = productData?.special_price || productView?.special_price;
+    const brand = productData?.brand || productView?.brand;
 
     return `
       <a href="${productUrl}" class="product-card" data-product-sku="${productData.sku}">
         <div class="product-image-container">
           ${imageUrl ? `<img class="product-image" src="${imageUrl}" alt="${productData.name}" loading="lazy" />` : ''}
+          ${hasDiscount ? '<div class="product-badge discount">Sale</div>' : ''}
+          ${!isInStock ? '<div class="product-badge out-of-stock">Out of Stock</div>' : ''}
         </div>
         <div class="product-content">
+          ${brand ? `<div class="product-brand">${brand}</div>` : ''}
           <h3 class="product-name">${productData.name}</h3>
+          ${shortDescription ? `<div class="product-short-description">${shortDescription}</div>` : ''}
           ${productData.description?.html ? `<div class="product-description">${productData.description.html}</div>` : ''}
-          ${price ? `<div class="product-price">${currency} ${price}</div>` : ''}
+          <div class="product-price-container">
+            ${hasDiscount ? `<div class="product-regular-price">${currency} ${regularPrice}</div>` : ''}
+            <div class="product-price">${currency} ${price}</div>
+            ${specialPrice ? `<div class="product-special-price">Special Price: ${currency} ${specialPrice}</div>` : ''}
+          </div>
+          ${productData.sku ? `<div class="product-sku">SKU: ${productData.sku}</div>` : ''}
         </div>
       </a>
     `;

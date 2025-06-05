@@ -59,35 +59,95 @@
   transform: scale(1.05);
 }
 
+.product-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.product-badge.discount {
+  background: #e53e3e;
+  color: white;
+}
+
+.product-badge.out-of-stock {
+  background: #718096;
+  color: white;
+}
+
 .product-content {
-  padding: 1.5rem;
+  padding: 2rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1.25rem;
+}
+
+.product-brand {
+  font-size: 1.125rem;
+  color: #4a5568;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .product-name {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: #333;
   margin: 0;
   line-height: 1.4;
 }
 
+.product-short-description {
+  font-size: 1.25rem;
+  color: #4a5568;
+  line-height: 1.5;
+  margin: 0;
+}
+
 .product-description {
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   color: #666;
   line-height: 1.5;
   margin: 0;
   flex-grow: 1;
 }
 
-.product-price {
+.product-price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.product-regular-price {
   font-size: 1.25rem;
+  color: #718096;
+  text-decoration: line-through;
+}
+
+.product-price {
+  font-size: 1.75rem;
   font-weight: 600;
   color: #2c5282;
-  margin-top: auto;
+}
+
+.product-special-price {
+  font-size: 1.25rem;
+  color: #e53e3e;
+  font-weight: 500;
+}
+
+.product-sku {
+  font-size: 1.125rem;
+  color: #718096;
+  margin-top: 1rem;
 }
 
 /* Loading state */
@@ -122,6 +182,18 @@
     grid-template-columns: repeat(2, 1fr);
     padding: 1.5rem;
   }
+
+  .product-name {
+    font-size: 1.5rem;
+  }
+
+  .product-price {
+    font-size: 1.5rem;
+  }
+
+  .product-content {
+    padding: 1.75rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -131,14 +203,29 @@
   }
   
   .product-content {
-    padding: 1rem;
+    padding: 1.5rem;
   }
   
   .product-name {
-    font-size: 1.125rem;
+    font-size: 1.375rem;
   }
   
   .product-price {
+    font-size: 1.375rem;
+  }
+
+  .product-short-description,
+  .product-description {
     font-size: 1.125rem;
+  }
+
+  .product-regular-price,
+  .product-special-price {
+    font-size: 1.125rem;
+  }
+
+  .product-brand,
+  .product-sku {
+    font-size: 1rem;
   }
 } 
